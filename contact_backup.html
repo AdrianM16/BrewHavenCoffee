@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Brew Haven</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">☕</span>
+        Brew Haven
+      </a>
+      <button class="menu-toggle">Menu ☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+          <li>
+            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
+              Cart <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Get in Touch with Brew Haven</h1>
+      <p>Have a question or suggestion? We’d love to hear from you!</p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM SECTION -->
+  <section class="section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form data-contact>
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your Name" required>
+        </div>
+        <div>
+          <label for="phone">Contact Number</label>
+          <input id="phone" name="phone" type="text" placeholder="09xx xxx xxxx" required>
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+        </div>
+        <!-- add before the submit button -->
+        <div>
+          <p>Select marketing preview:</p>
+          <label><input type="radio" name="platform" value="email" checked> Email</label>
+          <label><input type="radio" name="platform" value="social"> Social Media</label>
+        </div>
+
+        <div id="socialOptions" style="display:none">
+          <p>Select social platforms to preview:</p>
+          <label><input type="checkbox" name="socialPlatforms" value="facebook" checked> Facebook</label>
+          <label><input type="checkbox" name="socialPlatforms" value="instagram"> Instagram</label>
+          <label><input type="checkbox" name="socialPlatforms" value="x"> X</label>
+          <label><input type="checkbox" name="socialPlatforms" value="tiktok"> TikTok</label>
+        </div>
+
+        <script>
+          // simple show/hide social options
+          document.addEventListener('DOMContentLoaded', ()=> {
+            const radios = document.querySelectorAll('input[name="platform"]');
+            radios.forEach(r => r.addEventListener('change', () => {
+              const v = document.querySelector('input[name="platform"]:checked').value;
+              document.getElementById('socialOptions').style.display = (v === 'social') ? 'block' : 'none';
+            }));
+          });
+        </script>
+
+        <button type="submit">Send Message</button>
+        <div id="formMessages" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO & MAP -->
+  <section class="section">
+    <div class="container grid grid-3">
+      <div class="card">
+        <h3>Our Location</h3>
+        <p><strong>Address:</strong> 4952 Coffee Street, Manila, PH</p>
+        <p><strong>Phone:</strong> 0912-345-6789</p>
+        <p><strong>Email:</strong> hello@brewhaven.ph</p>
+        <p><strong>Hours:</strong> Mon–Sat 8:00–20:00</p>
+      </div>
+      <div class="card">
+        <h3>Find Us on Map</h3>
+        <div id="map" style="width:100%;height:300px;border-radius:8px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <strong>Your Cart</strong>
+      <button class="secondary" onclick="closeCart()">Close</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+        <span>Total</span><strong class="cart-total">₱0.00</strong>
+      </div>
+      <button>Checkout</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Brew Haven Coffee Shop</p>
+    </div>
+  </footer>
+
+   <!-- Google Maps API Integration -->
+   <script>
+     function initMap(){
+       const brewHavenLocation = { lat: 14.5995, lng: 120.9842 };
+       const map = new google.maps.Map(document.getElementById("map"), { center: brewHavenLocation, zoom: 16, mapTypeControl: true, streetViewControl: true, fullscreenControl: true });
+       const marker = new google.maps.Marker({ position: brewHavenLocation, map: map, title: "Brew Haven Coffee Shop", animation: google.maps.Animation.DROP });
+       const infoWindow = new google.maps.InfoWindow({ content: "<div style=&quot;padding:10px;&quot;><h3 style=&quot;margin:0 0 5px 0;&quot;>☕ Brew Haven Coffee Shop</h3><p style=&quot;margin:5px 0;&quot;>4952 Brew Street, Manila, Philippines</p><p style=&quot;margin:5px 0;&quot;>Phone: +63 912 345 6789</p></div>" });
+       marker.addListener("click", function() { infoWindow.open(map, marker); });
+     }
+   </script>
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&callback=initMap"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const form = document.querySelector('#contactForm') || document.querySelector('form');
+  if(!form) return;
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const fd = new FormData(form);
+    const data = {
+      name: fd.get('name') || fd.get('fullname') || '',
+      phone: fd.get('phone') || '',
+      email: fd.get('email') || '',
+      message: fd.get('message') || fd.get('msg') || '',
+      platform: fd.get('platform') || 'email',
+      platformsSelected: []
+    };
+    // gather checkboxes for platforms
+    document.querySelectorAll('input[name="platforms"]:checked').forEach(cb => data.platformsSelected.push(cb.value));
+    // save to sessionStorage for preview pages
+    sessionStorage.setItem('lastContactMessage', JSON.stringify(data));
+    // POST to API endpoint
+    try {
+      const resp = await fetch('/api/messages', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      const json = await resp.json();
+      console.log('Posted', json);
+    } catch(err){
+      console.warn('Failed to POST to API (server offline?):', err);
+    }
+    // redirect to appropriate mock preview
+    if(data.platform && data.platform.toLowerCase() === 'social'){
+      // pick first selected platform for preview query param
+      const p = data.platformsSelected[0] || 'facebook';
+      window.location.href = `mock_social.html?platform=${encodeURIComponent(p)}`;
+    } else {
+      window.location.href = 'mock_email.html';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

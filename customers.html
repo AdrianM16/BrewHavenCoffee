@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer List - Brew Haven</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
+        Brew Haven
+      </a>
+      <button class="menu-toggle">Menu ☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+          <li><a class="active" href="customers.html">Customers</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li>
+            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
+              Cart <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Customer List</h1>
+      <p>View and search through our valued customers</p>
+    </div>
+  </section>
+
+  <!-- CUSTOMER LIST SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="search-row">
+        <input type="text" id="custSearch" placeholder="Search customers by name, email, or phone...">
+      </div>
+      
+      <div id="custContainer" class="grid grid-3">
+        <!-- Customers will be loaded here dynamically -->
+      </div>
+      
+      <div id="noResults" style="display:none; text-align:center; padding:40px;">
+        <p>No customers found matching your search.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <strong>Your Cart</strong>
+      <button class="secondary" onclick="closeCart()">Close</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+        <span>Total</span><strong class="cart-total">₱0.00</strong>
+      </div>
+      <button>Checkout</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Brew Haven Coffee Shop</h4>
+        <p>4952 Brew Street, Manila, Philippines</p>
+        <p>Email: hello@brewhaven.ph</p>
+        <p>Phone: +63 912 345 6789</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a href="messages.html">Messages</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <p>
+          <a href="https://facebook.com" target="_blank">📘 Facebook</a> | 
+          <a href="https://instagram.com" target="_blank">📸 Instagram</a> | 
+          <a href="https://twitter.com" target="_blank">🐦 Twitter</a>
+        </p>
+      </div>
+    </div>
+    <div class="container" style="text-align:center;margin-top:16px;">
+      © 2025 Brew Haven Coffee Shop. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    async function loadCustomers(q = '') {
+      try {
+        const url = '/api/customers' + (q ? '?q=' + encodeURIComponent(q) : '');
+        const res = await fetch(url);
+        const arr = await res.json();
+        
+        const container = document.getElementById('custContainer');
+        const noResults = document.getElementById('noResults');
+        
+        container.innerHTML = '';
+        
+        if (arr.length === 0) {
+          noResults.style.display = 'block';
+          return;
+        }
+        
+        noResults.style.display = 'none';
+        
+        arr.forEach(cust => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <h3>${cust.name}</h3>
+            <p class="small"><strong>Email:</strong> ${cust.email}</p>
+            <p class="small"><strong>Phone:</strong> ${cust.phone}</p>
+            <p class="small"><strong>Joined:</strong> ${new Date(cust.joined).toLocaleDateString()}</p>
+            <p class="small"><strong>Loyalty Points:</strong> ${cust.loyalty_points || 0}</p>
+            <p class="small"><strong>Favorite:</strong> ${cust.favorite_drink || 'N/A'}</p>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Failed to load customers:', err);
+        document.getElementById('custContainer').innerHTML = '<p style="text-align:center;color:red;">Failed to load customers. Please make sure the server is running.</p>';
+      }
+    }
+    
+    document.getElementById('custSearch').addEventListener('input', e => loadCustomers(e.target.value));
+    document.addEventListener('DOMContentLoaded', () => loadCustomers());
+  </script>
+</body>
+</html>

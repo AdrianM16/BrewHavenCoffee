@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#3e2723" stroke="#ffcc80" stroke-width="3"/>
+  
+  <!-- Coffee Cup -->
+  <g transform="translate(100, 100)">
+    <!-- Cup Body -->
+    <path d="M -35 -20 L -30 30 Q -30 35 -25 35 L 25 35 Q 30 35 30 30 L 35 -20 Z" 
+          fill="#8d6e63" stroke="#5d4037" stroke-width="2"/>
+    
+    <!-- Cup Highlight -->
+    <path d="M -32 -15 L -28 25 Q -28 28 -25 28 L -15 28 Q -18 25 -20 -15 Z" 
+          fill="#a1887f" opacity="0.6"/>
+    
+    <!-- Handle -->
+    <path d="M 35 -10 Q 50 -10 50 5 Q 50 20 35 20" 
+          fill="none" stroke="#5d4037" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Coffee Surface -->
+    <ellipse cx="0" cy="-20" rx="35" ry="8" fill="#6d4c41"/>
+    <ellipse cx="0" cy="-20" rx="30" ry="6" fill="#795548"/>
+    
+    <!-- Steam Lines -->
+    <path d="M -15 -30 Q -18 -45 -15 -55" 
+          fill="none" stroke="#ffcc80" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 0 -32 Q -2 -48 0 -58" 
+          fill="none" stroke="#ffcc80" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 15 -30 Q 18 -45 15 -55" 
+          fill="none" stroke="#ffcc80" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+    
+    <!-- Coffee Beans Decoration -->
+    <g transform="translate(-60, 45)">
+      <ellipse cx="0" cy="0" rx="6" ry="8" fill="#5d4037" transform="rotate(-20)"/>
+      <line x1="0" y1="-4" x2="0" y2="4" stroke="#3e2723" stroke-width="1.5"/>
+    </g>
+    <g transform="translate(60, 45)">
+      <ellipse cx="0" cy="0" rx="6" ry="8" fill="#5d4037" transform="rotate(20)"/>
+      <line x1="0" y1="-4" x2="0" y2="4" stroke="#3e2723" stroke-width="1.5"/>
+    </g>
+  </g>
+  
+  <!-- Text: Brew Haven -->
+  <text x="100" y="175" font-family="Arial, sans-serif" font-size="18" font-weight="bold" 
+        fill="#ffcc80" text-anchor="middle">BREW HAVEN</text>
+</svg>

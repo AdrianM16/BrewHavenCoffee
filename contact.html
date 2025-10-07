@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Brew Haven</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
+        Brew Haven
+      </a>
+      <button class="menu-toggle">Menu ☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li>
+            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
+              Cart <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Get in Touch with Brew Haven</h1>
+      <p>Have a question or suggestion? We'd love to hear from you!</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTIONS -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- REGULAR INQUIRIES SECTION -->
+      <div class="contact-section">
+        <h2>Send Us a Message</h2>
+        <p>Use this form for general inquiries, feedback, or questions about our services.</p>
+        
+        <form data-contact-inquiry>
+          <div class="form-group">
+            <label for="inquiry_name">Your Name *</label>
+            <input id="inquiry_name" name="name" type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="inquiry_phone">Contact Number *</label>
+            <input id="inquiry_phone" name="phone" type="text" placeholder="09xx xxx xxxx" required>
+          </div>
+          <div class="form-group">
+            <label for="inquiry_email">Email Address *</label>
+            <input id="inquiry_email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="inquiry_message">Your Message *</label>
+            <textarea id="inquiry_message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Inquiry</button>
+          <div id="inquiryResponse" class="form-response"></div>
+        </form>
+      </div>
+
+      <!-- MARKETING PREVIEW SECTION -->
+      <div class="contact-section">
+        <h2>Marketing Preview</h2>
+        <p>Want to see how your message would look as a marketing campaign? Use this form to preview email and social media content.</p>
+        
+        <form data-contact-marketing>
+          <div class="form-group">
+            <label for="marketing_name">Your Name *</label>
+            <input id="marketing_name" name="name" type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="marketing_email">Email Address *</label>
+            <input id="marketing_email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="marketing_message">Marketing Message *</label>
+            <textarea id="marketing_message" name="message" rows="4" placeholder="Your marketing message here..." required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label>Marketing Platform *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="platform" value="email" checked> Email Marketing</label>
+              <label><input type="radio" name="platform" value="social"> Social Media Marketing</label>
+            </div>
+          </div>
+
+          <div id="socialOptions" style="display:none">
+            <div class="form-group">
+              <label>Social Media Platforms (Select at least 3)</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="socialPlatforms" value="facebook" checked> Facebook</label>
+                <label><input type="checkbox" name="socialPlatforms" value="instagram"> Instagram</label>
+                <label><input type="checkbox" name="socialPlatforms" value="x" checked> X (Twitter)</label>
+                <label><input type="checkbox" name="socialPlatforms" value="tiktok" checked> TikTok</label>
+              </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn outline">Preview Marketing Content</button>
+          <div id="marketingResponse" class="form-response"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT INFO & MAP -->
+  <section class="section">
+    <div class="container grid grid-3">
+      <div class="card">
+        <h3>Our Location</h3>
+        <p><strong>Address:</strong> 4952 Coffee Street, Manila, PH</p>
+        <p><strong>Phone:</strong> 0912-345-6789</p>
+        <p><strong>Email:</strong> hello@brewhaven.ph</p>
+        <p><strong>Hours:</strong> Mon–Sat 8:00–20:00</p>
+      </div>
+      <div class="card">
+        <h3>Find Us on Map</h3>
+        <div id="map" style="width:100%;height:300px;border-radius:8px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <strong>Your Cart</strong>
+      <button class="secondary" onclick="closeCart()">Close</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+        <span>Total</span><strong class="cart-total">₱0.00</strong>
+      </div>
+      <button>Checkout</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Brew Haven Coffee Shop</p>
+    </div>
+  </footer>
+
+  <style>
+    .contact-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .contact-section h2 {
+      color: #3e2723;
+      margin-bottom: 15px;
+    }
+    .contact-section p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .radio-group label,
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: normal;
+      margin-bottom: 0;
+    }
+    .radio-group input[type="radio"],
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+    .form-response {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 6px;
+      display: none;
+    }
+    .form-response.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .form-response.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .btn {
+      background: #3e2723;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #5d4037;
+    }
+    .btn.outline {
+      background: transparent;
+      color: #3e2723;
+      border: 2px solid #3e2723;
+    }
+    .btn.outline:hover {
+      background: #3e2723;
+      color: white;
+    }
+  </style>
+
+  <script>
+    // Handle regular inquiry form
+    document.addEventListener('DOMContentLoaded', function() {
+      const inquiryForm = document.querySelector('[data-contact-inquiry]');
+      const marketingForm = document.querySelector('[data-contact-marketing]');
+      const socialOptions = document.getElementById('socialOptions');
+      const marketingResponse = document.getElementById('marketingResponse');
+      const inquiryResponse = document.getElementById('inquiryResponse');
+
+      // Handle marketing platform selection
+      const marketingRadios = document.querySelectorAll('input[name="platform"]');
+      marketingRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          const selected = document.querySelector('input[name="platform"]:checked').value;
+          socialOptions.style.display = (selected === 'social') ? 'block' : 'none';
+        });
+      });
+
+      // Handle regular inquiry form
+      inquiryForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        try {
+          const res = await fetch('/api/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ...data,
+              platform: 'inquiry',
+              platformsSelected: []
+            })
+          });
+          const result = await res.json();
+          
+          inquiryResponse.textContent = 'Thank you! Your inquiry has been sent successfully.';
+          inquiryResponse.className = 'form-response success';
+          inquiryResponse.style.display = 'block';
+          this.reset();
+          
+        } catch (err) {
+          inquiryResponse.textContent = 'Sorry, there was an error sending your inquiry. Please try again.';
+          inquiryResponse.className = 'form-response error';
+          inquiryResponse.style.display = 'block';
+        }
+      });
+
+      // Handle marketing preview form
+      marketingForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        const platform = data.platform;
+        const platformsSelected = Array.from(formData.getAll('socialPlatforms'));
+        
+        try {
+          const res = await fetch('/api/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ...data,
+              platform: platform,
+              platformsSelected: platformsSelected
+            })
+          });
+          const result = await res.json();
+          
+          // Redirect to appropriate mockup page
+          if (platform === 'social' && platformsSelected.length > 0) {
+            const firstPlatform = platformsSelected[0];
+            window.location.href = `mock_social.html?platform=${encodeURIComponent(firstPlatform)}`;
+          } else {
+            window.location.href = 'mock_email.html';
+          }
+          
+        } catch (err) {
+          marketingResponse.textContent = 'Sorry, there was an error. Please try again.';
+          marketingResponse.className = 'form-response error';
+          marketingResponse.style.display = 'block';
+        }
+      });
+    });
+  </script>
+
+  <!-- Google Maps API Integration -->
+  <script>
+    function initMap(){
+      const brewHavenLocation = { lat: 14.5995, lng: 120.9842 };
+      const map = new google.maps.Map(document.getElementById('map'), { 
+        center: brewHavenLocation, 
+        zoom: 16,
+        mapTypeControl: true,
+        streetViewControl: true,
+        fullscreenControl: true
+      });
+      
+      const marker = new google.maps.Marker({ 
+        position: brewHavenLocation, 
+        map: map, 
+        title: 'Brew Haven Coffee Shop',
+        animation: google.maps.Animation.DROP
+      });
+      
+      const infoWindow = new google.maps.InfoWindow({
+        content: '<div style="padding:10px;"><h3 style="margin:0 0 5px 0;">☕ Brew Haven Coffee Shop</h3><p style="margin:5px 0;">4952 Brew Street, Manila, Philippines</p><p style="margin:5px 0;">Phone: +63 912 345 6789</p></div>'
+      });
+      
+      marker.addListener('click', function() {
+        infoWindow.open(map, marker);
+      });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&callback=initMap"></script>
+
+</body>
+</html>

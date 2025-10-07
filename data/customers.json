@@ -1,0 +1,137 @@
+[
+  {
+    "id": "c001",
+    "name": "Maria Santos",
+    "email": "maria.santos@email.com",
+    "phone": "0917-123-4567",
+    "joined": "2024-01-15",
+    "loyalty_points": 450,
+    "favorite_drink": "Caramel Macchiato"
+  },
+  {
+    "id": "c002",
+    "name": "Juan Dela Cruz",
+    "email": "juan.delacruz@email.com",
+    "phone": "0918-234-5678",
+    "joined": "2024-02-20",
+    "loyalty_points": 320,
+    "favorite_drink": "Americano"
+  },
+  {
+    "id": "c003",
+    "name": "Sarah Johnson",
+    "email": "sarah.j@email.com",
+    "phone": "0919-345-6789",
+    "joined": "2024-03-10",
+    "loyalty_points": 580,
+    "favorite_drink": "Cappuccino"
+  },
+  {
+    "id": "c004",
+    "name": "Miguel Reyes",
+    "email": "miguel.reyes@email.com",
+    "phone": "0920-456-7890",
+    "joined": "2024-04-05",
+    "loyalty_points": 210,
+    "favorite_drink": "Espresso"
+  },
+  {
+    "id": "c005",
+    "name": "Anna Lee",
+    "email": "anna.lee@email.com",
+    "phone": "0921-567-8901",
+    "joined": "2024-05-12",
+    "loyalty_points": 390,
+    "favorite_drink": "Matcha Latte"
+  },
+  {
+    "id": "c006",
+    "name": "Carlos Mendoza",
+    "email": "carlos.m@email.com",
+    "phone": "0922-678-9012",
+    "joined": "2024-06-18",
+    "loyalty_points": 150,
+    "favorite_drink": "Cold Brew"
+  },
+  {
+    "id": "c007",
+    "name": "Lisa Chen",
+    "email": "lisa.chen@email.com",
+    "phone": "0923-789-0123",
+    "joined": "2024-07-22",
+    "loyalty_points": 270,
+    "favorite_drink": "Latte"
+  },
+  {
+    "id": "c008",
+    "name": "Roberto Garcia",
+    "email": "roberto.g@email.com",
+    "phone": "0924-890-1234",
+    "joined": "2024-08-08",
+    "loyalty_points": 420,
+    "favorite_drink": "Mocha"
+  },
+  {
+    "id": "c009",
+    "name": "Jennifer Tan",
+    "email": "jennifer.tan@email.com",
+    "phone": "0925-901-2345",
+    "joined": "2024-09-14",
+    "loyalty_points": 180,
+    "favorite_drink": "Flat White"
+  },
+  {
+    "id": "c010",
+    "name": "David Lim",
+    "email": "david.lim@email.com",
+    "phone": "0926-012-3456",
+    "joined": "2024-10-01",
+    "loyalty_points": 95,
+    "favorite_drink": "Affogato"
+  },
+  {
+    "id": "c011",
+    "name": "Patricia Cruz",
+    "email": "patricia.cruz@email.com",
+    "phone": "0927-123-4567",
+    "joined": "2024-01-28",
+    "loyalty_points": 510,
+    "favorite_drink": "Cappuccino"
+  },
+  {
+    "id": "c012",
+    "name": "Mark Wilson",
+    "email": "mark.wilson@email.com",
+    "phone": "0928-234-5678",
+    "joined": "2024-02-14",
+    "loyalty_points": 340,
+    "favorite_drink": "Irish Coffee"
+  },
+  {
+    "id": "c013",
+    "name": "Sofia Rodriguez",
+    "email": "sofia.r@email.com",
+    "phone": "0929-345-6789",
+    "joined": "2024-03-25",
+    "loyalty_points": 460,
+    "favorite_drink": "Caramel Macchiato"
+  },
+  {
+    "id": "c014",
+    "name": "James Park",
+    "email": "james.park@email.com",
+    "phone": "0930-456-7890",
+    "joined": "2024-04-19",
+    "loyalty_points": 290,
+    "favorite_drink": "Americano"
+  },
+  {
+    "id": "c015",
+    "name": "Michelle Gomez",
+    "email": "michelle.g@email.com",
+    "phone": "0931-567-8901",
+    "joined": "2024-05-30",
+    "loyalty_points": 220,
+    "favorite_drink": "Matcha Latte"
+  }
+]

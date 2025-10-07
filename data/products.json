@@ -1,0 +1,290 @@
+[
+  {
+    "id": "cap",
+    "name": "Cappuccino",
+    "description": "Espresso, foamed milk, dusted with cocoa",
+    "price": 120,
+    "category": "Coffee",
+    "image": "images/cappuccino.jpg",
+    "tags": [
+      "Hot",
+      "Milk"
+    ]
+  },
+  {
+    "id": "lat",
+    "name": "Caffè Latte",
+    "description": "Rich espresso with steamed milk",
+    "price": 110,
+    "category": "Coffee",
+    "image": "images/latte.jpg",
+    "tags": [
+      "Hot",
+      "Milk"
+    ]
+  },
+  {
+    "id": "esp",
+    "name": "Espresso",
+    "description": "Strong and bold, pure espresso shot",
+    "price": 90,
+    "category": "Coffee",
+    "image": "images/espresso.jpg",
+    "tags": [
+      "Hot",
+      "Strong"
+    ]
+  },
+  {
+    "id": "moc",
+    "name": "Mocha",
+    "description": "Espresso with chocolate and steamed milk",
+    "price": 130,
+    "category": "Coffee",
+    "image": "images/mocha.jpg",
+    "tags": [
+      "Chocolate"
+    ]
+  },
+  {
+    "id": "ame",
+    "name": "Americano",
+    "description": "Simple, strong espresso with hot water",
+    "price": 100,
+    "category": "Coffee",
+    "image": "images/americano.jpg",
+    "tags": [
+      "Hot",
+      "Black"
+    ]
+  },
+  {
+    "id": "mac",
+    "name": "Caramel Macchiato",
+    "description": "Espresso, milk, vanilla, and caramel drizzle",
+    "price": 140,
+    "category": "Coffee",
+    "image": "images/caramel.jpg",
+    "tags": [
+      "Caramel"
+    ]
+  },
+  {
+    "id": "cld",
+    "name": "Cold Brew",
+    "description": "Smooth cold-brewed coffee served over ice",
+    "price": 110,
+    "category": "Coffee",
+    "image": "images/cold.jpg",
+    "tags": [
+      "Cold"
+    ]
+  },
+  {
+    "id": "fla",
+    "name": "Flat White",
+    "description": "Velvety microfoam with double espresso",
+    "price": 125,
+    "category": "Coffee",
+    "image": "images/flat.jpg",
+    "tags": [
+      "Hot",
+      "Milk"
+    ]
+  },
+  {
+    "id": "aff",
+    "name": "Affogato",
+    "description": "Espresso poured over vanilla ice cream",
+    "price": 150,
+    "category": "Coffee",
+    "image": "images/affogato.jpg",
+    "tags": [
+      "Dessert",
+      "Ice Cream"
+    ]
+  },
+  {
+    "id": "iri",
+    "name": "Irish Coffee",
+    "description": "Coffee with Irish whiskey and cream",
+    "price": 170,
+    "category": "Coffee",
+    "image": "images/irish.jpg",
+    "tags": [
+      "Alcohol",
+      "Cream"
+    ]
+  },
+  {
+    "id": "mat",
+    "name": "Matcha Latte",
+    "description": "Premium matcha green tea with steamed milk",
+    "price": 135,
+    "category": "Coffee",
+    "image": "images/matcha.jpg",
+    "tags": [
+      "Green Tea",
+      "Milk"
+    ]
+  },
+  {
+    "id": "muf",
+    "name": "Blueberry Muffin",
+    "description": "Freshly baked muffin with blueberries",
+    "price": 80,
+    "category": "Pastry",
+    "image": "images/muffin.jpg",
+    "tags": [
+      "Baked"
+    ]
+  },
+  {
+    "id": "cro",
+    "name": "Butter Croissant",
+    "description": "Flaky, buttery French croissant",
+    "price": 75,
+    "category": "Pastry",
+    "image": "images/croissant.jpg",
+    "tags": [
+      "Baked"
+    ]
+  },
+  {
+    "id": "don",
+    "name": "Chocolate Donut",
+    "description": "Glazed donut with chocolate frosting",
+    "price": 85,
+    "category": "Pastry",
+    "image": "images/donut.jpg",
+    "tags": [
+      "Sweet"
+    ]
+  },
+  {
+    "id": "brw",
+    "name": "Fudge Brownie",
+    "description": "Rich chocolate brownie with walnuts",
+    "price": 95,
+    "category": "Pastry",
+    "image": "images/brownie.jpg",
+    "tags": [
+      "Choco",
+      "Baked"
+    ]
+  },
+  {
+    "id": "ckie",
+    "name": "Oatmeal Cookie",
+    "description": "Chewy oatmeal cookie with raisins",
+    "price": 60,
+    "category": "Pastry",
+    "image": "images/cookie.jpg",
+    "tags": [
+      "Baked",
+      "Crunchy"
+    ]
+  },
+  {
+    "id": "che",
+    "name": "New York Cheesecake",
+    "description": "Creamy slice topped with strawberry sauce",
+    "price": 120,
+    "category": "Pastry",
+    "image": "images/cheesecake.jpg",
+    "tags": [
+      "Creamy",
+      "Sweet"
+    ]
+  },
+  {
+    "id": "cin",
+    "name": "Cinnamon Roll",
+    "description": "Warm cinnamon roll with cream cheese frosting",
+    "price": 100,
+    "category": "Pastry",
+    "image": "images/cinnamon.jpg",
+    "tags": [
+      "Sweet",
+      "Baked"
+    ]
+  },
+  {
+    "id": "str",
+    "name": "Strawberry Shortcake",
+    "description": "Light sponge cake with fresh strawberries and cream",
+    "price": 140,
+    "category": "Pastry",
+    "image": "images/shortcake.jpg",
+    "tags": [
+      "Fruity",
+      "Creamy"
+    ]
+  },
+  {
+    "id": "tum",
+    "name": "Brew Haven Tumbler",
+    "description": "Insulated stainless steel tumbler with logo",
+    "price": 300,
+    "category": "Merch",
+    "image": "images/tumbler.jpg",
+    "tags": [
+      "Reusable"
+    ]
+  },
+  {
+    "id": "mug",
+    "name": "Coffee Mug",
+    "description": "Ceramic mug with Brew Haven branding",
+    "price": 150,
+    "category": "Merch",
+    "image": "images/mug.jpg",
+    "tags": [
+      "Ceramic"
+    ]
+  },
+  {
+    "id": "bag",
+    "name": "Eco Tote Bag",
+    "description": "Reusable canvas tote with cafe logo",
+    "price": 200,
+    "category": "Merch",
+    "image": "images/totebag.jpg",
+    "tags": [
+      "Reusable"
+    ]
+  },
+  {
+    "id": "capm",
+    "name": "Cafe Cap",
+    "description": "Adjustable cap with embroidered logo",
+    "price": 180,
+    "category": "Merch",
+    "image": "images/cap.jpg",
+    "tags": [
+      "Clothing"
+    ]
+  },
+  {
+    "id": "sts",
+    "name": "Sticker Set",
+    "description": "Pack of 10 coffee-themed stickers",
+    "price": 50,
+    "category": "Merch",
+    "image": "images/stickers.jpg",
+    "tags": [
+      "Collectible"
+    ]
+  },
+  {
+    "id": "pin",
+    "name": "Cafe Pin Badge",
+    "description": "Enamel pin with coffee cup design",
+    "price": 90,
+    "category": "Merch",
+    "image": "images/pin.jpg",
+    "tags": [
+      "Collectible"
+    ]
+  }
+]

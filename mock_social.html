@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Marketing Preview - Brew Haven</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    .social-preview-container {
+      max-width: 800px;
+      margin: 40px auto;
+    }
+    .platform-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .platform-tab {
+      padding: 12px 24px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+    }
+    .platform-tab:hover {
+      background: #f5f5f5;
+    }
+    .platform-tab.active {
+      background: #3e2723;
+      color: white;
+      border-color: #3e2723;
+    }
+    .social-mockup {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    /* Facebook Style */
+    .fb-post {
+      border: 1px solid #ddd;
+    }
+    .fb-header {
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .fb-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #3e2723;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .fb-name {
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .fb-time {
+      font-size: 12px;
+      color: #666;
+    }
+    .fb-content {
+      padding: 15px;
+      line-height: 1.5;
+    }
+    .fb-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    .fb-actions {
+      padding: 10px 15px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-around;
+    }
+    .fb-action {
+      padding: 8px 16px;
+      color: #666;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    /* Instagram Style */
+    .ig-post {
+      max-width: 500px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+    }
+    .ig-header {
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .ig-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: white;
+    }
+    .ig-username {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .ig-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+    .ig-actions {
+      padding: 12px;
+      display: flex;
+      gap: 15px;
+      font-size: 24px;
+    }
+    .ig-caption {
+      padding: 0 12px 12px 12px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    /* X (Twitter) Style */
+    .x-post {
+      border: 1px solid #ddd;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .x-header {
+      padding: 15px;
+      display: flex;
+      gap: 10px;
+    }
+    .x-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: white;
+      flex-shrink: 0;
+    }
+    .x-content {
+      flex: 1;
+    }
+    .x-name {
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .x-handle {
+      color: #666;
+      font-size: 14px;
+    }
+    .x-text {
+      margin: 10px 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .x-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+    .x-actions {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #eee;
+      margin-top: 10px;
+      color: #666;
+    }
+    
+    /* TikTok Style */
+    .tt-post {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #000;
+      color: white;
+      position: relative;
+      height: 600px;
+    }
+    .tt-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .tt-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    }
+    .tt-username {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .tt-caption {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .tt-sidebar {
+      position: absolute;
+      right: 10px;
+      bottom: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    .tt-action {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">☕</span>
+        Brew Haven
+      </a>
+      <button class="menu-toggle">Menu ☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li>
+            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
+              Cart <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Social Media Marketing Preview</h1>
+      <p>See how your post would appear on different platforms</p>
+    </div>
+  </section>
+
+  <!-- SOCIAL PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="social-preview-container">
+        <!-- Platform Tabs -->
+        <div class="platform-tabs">
+          <button class="platform-tab active" data-platform="facebook">📘 Facebook</button>
+          <button class="platform-tab" data-platform="instagram">📸 Instagram</button>
+          <button class="platform-tab" data-platform="x">🐦 X (Twitter)</button>
+          <button class="platform-tab" data-platform="tiktok">🎵 TikTok</button>
+        </div>
+
+        <!-- Facebook Mockup -->
+        <div class="social-mockup" id="facebook-preview">
+          <div class="fb-post">
+            <div class="fb-header">
+              <div class="fb-avatar">☕</div>
+              <div>
+                <div class="fb-name">Brew Haven Coffee Shop</div>
+                <div class="fb-time">Just now · 🌍</div>
+              </div>
+            </div>
+            <div class="fb-content" id="fb-message">
+              We're excited to connect with you! ☕✨
+              
+              Visit us today and enjoy our freshly brewed coffee and delicious pastries. Your cozy spot for coffee and conversations awaits!
+              
+              #BrewHaven #CoffeeLovers #ManilaEats
+            </div>
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&h=400&fit=crop" alt="Coffee Shop" class="fb-image">
+            <div class="fb-actions">
+              <div class="fb-action">👍 Like</div>
+              <div class="fb-action">💬 Comment</div>
+              <div class="fb-action">↗️ Share</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram Mockup -->
+        <div class="social-mockup" id="instagram-preview" style="display:none;">
+          <div class="ig-post">
+            <div class="ig-header">
+              <div class="ig-avatar">☕</div>
+              <div class="ig-username">brewhavencoffee</div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=500&h=500&fit=crop" alt="Coffee" class="ig-image">
+            <div class="ig-actions">
+              <span>❤️</span>
+              <span>💬</span>
+              <span>📤</span>
+            </div>
+            <div class="ig-caption">
+              <strong>brewhavencoffee</strong> <span id="ig-message">Your daily dose of happiness in a cup! ☕✨ Come visit us and experience the perfect blend of flavor and comfort. #BrewHaven #CoffeeLove #ManilaEats #CoffeeShop</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- X (Twitter) Mockup -->
+        <div class="social-mockup" id="x-preview" style="display:none;">
+          <div class="x-post">
+            <div class="x-header">
+              <div class="x-avatar">☕</div>
+              <div class="x-content">
+                <div>
+                  <span class="x-name">Brew Haven</span>
+                  <span class="x-handle">@brewhavencoffee · Just now</span>
+                </div>
+                <div class="x-text" id="x-message">
+                  Your cozy spot for coffee and conversations! ☕✨
+                  
+                  Visit us today at 4952 Brew Street, Manila. Fresh brews, delicious pastries, and great vibes await!
+                  
+                  #BrewHaven #CoffeeLovers #ManilaEats
+                </div>
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&h=300&fit=crop" alt="Coffee" class="x-image">
+                <div class="x-actions">
+                  <span>💬 Reply</span>
+                  <span>🔁 Repost</span>
+                  <span>❤️ Like</span>
+                  <span>📊 View</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TikTok Mockup -->
+        <div class="social-mockup" id="tiktok-preview" style="display:none;">
+          <div class="tt-post">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=600&fit=crop" alt="Coffee Video" class="tt-video">
+            <div class="tt-overlay">
+              <div class="tt-username">@brewhavencoffee</div>
+              <div class="tt-caption" id="tt-message">
+                Your daily coffee fix awaits! ☕✨ Come visit us for the best brews in town! #BrewHaven #CoffeeTok #Manila #CoffeeLovers
+              </div>
+            </div>
+            <div class="tt-sidebar">
+              <div class="tt-action">❤️</div>
+              <div class="tt-action">💬</div>
+              <div class="tt-action">📤</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="text-align: center; margin: 30px 0;">
+        <button onclick="window.print()" class="btn">Print / Save as PDF</button>
+        <a href="contact.html" class="btn outline" style="margin-left: 10px;">Back to Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <strong>Your Cart</strong>
+      <button class="secondary" onclick="closeCart()">Close</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+        <span>Total</span><strong class="cart-total">₱0.00</strong>
+      </div>
+      <button>Checkout</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Brew Haven Coffee Shop</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get customer message from session storage
+      const data = JSON.parse(sessionStorage.getItem('lastContactMessage') || 'null');
+      const customerMessage = data && data.message ? data.message : null;
+      
+      // Update messages if customer message exists
+      if (customerMessage) {
+        const fbMsg = document.getElementById('fb-message');
+        const igMsg = document.getElementById('ig-message');
+        const xMsg = document.getElementById('x-message');
+        const ttMsg = document.getElementById('tt-message');
+        
+        if (fbMsg) fbMsg.textContent = customerMessage + '\n\n#BrewHaven #CoffeeLovers #ManilaEats';
+        if (igMsg) igMsg.textContent = customerMessage + ' #BrewHaven #CoffeeLove #ManilaEats';
+        if (xMsg) xMsg.textContent = customerMessage + '\n\n#BrewHaven #CoffeeLovers #ManilaEats';
+        if (ttMsg) ttMsg.textContent = customerMessage + ' #BrewHaven #CoffeeTok #Manila';
+      }
+      
+      // Platform switching
+      const tabs = document.querySelectorAll('.platform-tab');
+      const previews = {
+        'facebook': document.getElementById('facebook-preview'),
+        'instagram': document.getElementById('instagram-preview'),
+        'x': document.getElementById('x-preview'),
+        'tiktok': document.getElementById('tiktok-preview')
+      };
+      
+      // Get platform from URL or default to facebook
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialPlatform = urlParams.get('platform') || 'facebook';
+      
+      // Show initial platform
+      showPlatform(initialPlatform);
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const platform = this.dataset.platform;
+          showPlatform(platform);
+        });
+      });
+      
+      function showPlatform(platform) {
+        // Hide all previews
+        Object.values(previews).forEach(preview => {
+          if (preview) preview.style.display = 'none';
+        });
+        
+        // Remove active class from all tabs
+        tabs.forEach(tab => tab.classList.remove('active'));
+        
+        // Show selected preview
+        if (previews[platform]) {
+          previews[platform].style.display = 'block';
+        }
+        
+        // Add active class to selected tab
+        const activeTab = document.querySelector(`[data-platform="${platform}"]`);
+        if (activeTab) activeTab.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Messages - Brew Haven</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
+        Brew Haven
+      </a>
+      <button class="menu-toggle">Menu ☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a class="active" href="messages.html">Messages</a></li>
+          <li>
+            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
+              Cart <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Customer Messages</h1>
+      <p>View and search through customer inquiries and feedback</p>
+    </div>
+  </section>
+
+  <!-- MESSAGES SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="search-row">
+        <input type="text" id="msgSearch" placeholder="Search messages by name, email, or content...">
+      </div>
+      
+      <div id="msgContainer">
+        <!-- Messages will be loaded here dynamically -->
+      </div>
+      
+      <div id="noResults" style="display:none; text-align:center; padding:40px;">
+        <p>No messages found matching your search.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <strong>Your Cart</strong>
+      <button class="secondary" onclick="closeCart()">Close</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+        <span>Total</span><strong class="cart-total">₱0.00</strong>
+      </div>
+      <button>Checkout</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Brew Haven Coffee Shop</h4>
+        <p>4952 Brew Street, Manila, Philippines</p>
+        <p>Email: hello@brewhaven.ph</p>
+        <p>Phone: +63 912 345 6789</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a href="messages.html">Messages</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <p>
+          <a href="https://facebook.com" target="_blank">📘 Facebook</a> | 
+          <a href="https://instagram.com" target="_blank">📸 Instagram</a> | 
+          <a href="https://twitter.com" target="_blank">🐦 Twitter</a>
+        </p>
+      </div>
+    </div>
+    <div class="container" style="text-align:center;margin-top:16px;">
+      © 2025 Brew Haven Coffee Shop. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    async function loadMessages(q = '') {
+      try {
+        const url = '/api/messages' + (q ? '?q=' + encodeURIComponent(q) : '');
+        const res = await fetch(url);
+        const arr = await res.json();
+        
+        const container = document.getElementById('msgContainer');
+        const noResults = document.getElementById('noResults');
+        
+        container.innerHTML = '';
+        
+        if (arr.length === 0) {
+          noResults.style.display = 'block';
+          return;
+        }
+        
+        noResults.style.display = 'none';
+        
+        arr.forEach(m => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.style.marginBottom = '16px';
+          
+          const platformBadge = m.platform === 'email' 
+            ? '<span style="background:#4CAF50;color:white;padding:4px 8px;border-radius:4px;font-size:12px;">📧 Email</span>'
+            : '<span style="background:#2196F3;color:white;padding:4px 8px;border-radius:4px;font-size:12px;">📱 Social Media</span>';
+          
+          card.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+              <h3 style="margin:0;">${m.name}</h3>
+              ${platformBadge}
+            </div>
+            <p class="small" style="margin:4px 0;"><strong>Email:</strong> ${m.email}</p>
+            <p class="small" style="margin:4px 0;"><strong>Phone:</strong> ${m.phone || 'N/A'}</p>
+            <p class="small" style="margin:4px 0;"><strong>Date:</strong> ${new Date(m.date_sent).toLocaleString()}</p>
+            ${m.platformsSelected && m.platformsSelected.length > 0 ? 
+              `<p class="small" style="margin:4px 0;"><strong>Platforms:</strong> ${m.platformsSelected.join(', ')}</p>` : ''}
+            <hr style="margin:12px 0;">
+            <p style="margin:8px 0;"><strong>Message:</strong></p>
+            <p style="margin:8px 0;background:#f5f5f5;padding:12px;border-radius:4px;">${m.message}</p>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Failed to load messages:', err);
+        document.getElementById('msgContainer').innerHTML = '<p style="text-align:center;color:red;">Failed to load messages. Please make sure the server is running.</p>';
+      }
+    }
+    
+    document.getElementById('msgSearch').addEventListener('input', e => loadMessages(e.target.value));
+    document.addEventListener('DOMContentLoaded', () => loadMessages());
+  </script>
+</body>
+</html>
