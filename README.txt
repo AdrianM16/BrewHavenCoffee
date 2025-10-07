@@ -1,6 +1,6 @@
 ================================================================================
                     BREW HAVEN COFFEE SHOP WEBSITE
-                         Complete Package
+                         Complete 
 ================================================================================
 
 PROJECT OVERVIEW
@@ -113,13 +113,7 @@ TECHNICAL STACK
 - Node.js (for server)
 - LocalStorage (for data persistence)
 
-CONTACT
--------
-For support or questions about this website, please refer to the
-USER_MANUAL.pdf for detailed instructions and troubleshooting.
-
 ================================================================================
                     Created by: Brew Haven Development Team
-                    Date: October 6, 2025
-                    Version: 1.0
+                    Date: October 67, 2025
 ================================================================================
