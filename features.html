@@ -2,125 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brew Haven Features</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Story | Brew Haven Coffee</title>
+  <meta name="description" content="Why Brew Haven: specialty coffee, fresh local pastries, a cozy work-friendly space and an eco-friendly promise.">
+  <meta name="theme-color" content="#23150f">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="data/seed.js"></script>
+  <script defer src="store.js"></script>
+  <script defer src="auth.js"></script>
   <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
-        Brew Haven
-      </a>
-      <button class="menu-toggle">Menu ☰</button>
-      <nav>
-        <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="features.html">Features</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-             <li><a href="customers.html">Customers</a></li>
-             <li><a href="messages.html">Messages</a></li>
-        <li>
-          <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
-            Cart <span class="cart-count">0</span>
-          </a>
-        </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body data-page="story">
+<main id="main">
 
-  <!-- Features Section -->
+  <section class="page-hero page-hero-dark">
+    <div class="ring" aria-hidden="true"></div>
+    <div class="container">
+      <p class="eyebrow">Our story</p>
+      <h1>Good coffee is a <em class="accent" style="color:var(--honey)">slow</em> craft.</h1>
+      <p class="lead">We're a small team of baristas and bakers who think a café should feel like a living room, with better coffee.</p>
+    </div>
+  </section>
+
+  <!-- STORY SPLIT -->
+  <section class="section">
+    <div class="container split reverse">
+      <div class="photo-stack reveal reveal-right">
+        <img src="images/espresso.jpg" alt="A fresh espresso shot with golden crema" loading="lazy">
+        <p class="note">Every grinder is dialled in by hand at 7AM, every day.</p>
+      </div>
+      <div class="reveal reveal-left">
+        <p class="eyebrow">Why Brew Haven</p>
+        <h2>Six small things we refuse to compromise on.</h2>
+        <p class="lead">None of it is fancy. It's just the stuff that makes you want to come back tomorrow.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="grid grid-3">
+        <article class="card reveal" style="--i:0">
+          <div class="card-icon" aria-hidden="true">☕</div>
+          <h3>Specialty blends</h3>
+          <p class="muted">Hand-picked single-origin beans, roasted in small batches. We calibrate grind and extraction every morning for peak flavor.</p>
+        </article>
+        <article class="card reveal" style="--i:1">
+          <div class="card-icon" aria-hidden="true">🥐</div>
+          <h3>Fresh local pastries</h3>
+          <p class="muted">Partner bakeries deliver at dawn. Seasonal bakes spotlight local fruit and Filipino flavors like ube and calamansi.</p>
+        </article>
+        <article class="card reveal" style="--i:2">
+          <div class="card-icon" aria-hidden="true">🛋️</div>
+          <h3>Cozy &amp; connected</h3>
+          <p class="muted">Quiet corners for focus, couches for catch-ups, curated playlists and plenty of charging spots.</p>
+        </article>
+        <article class="card reveal" style="--i:0">
+          <div class="card-icon" aria-hidden="true">🌿</div>
+          <h3>Eco-friendly</h3>
+          <p class="muted">Compostable cups, paper straws, and ₱10 off when you bring your own tumbler. Coffee grounds go to community gardens.</p>
+        </article>
+        <article class="card reveal" style="--i:1">
+          <div class="card-icon" aria-hidden="true">🎁</div>
+          <h3>Rewards &amp; loyalty</h3>
+          <p class="muted">Earn points with every purchase and trade them for free drinks, pastries and members-only tastings.</p>
+        </article>
+        <article class="card reveal" style="--i:2">
+          <div class="card-icon" aria-hidden="true">🤝</div>
+          <h3>Fast, friendly service</h3>
+          <p class="muted">Quick orders during the morning rush without cutting corners on quality, and always with a smile.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section bg-oat">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">From farm to cup</p>
+          <h2>How a bean becomes your morning.</h2>
+        </div>
+        <p>Three steps, done carefully, with no shortcuts in between.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal" style="--i:0">
+          <h3>Sourced</h3>
+          <p class="muted">We buy direct from farmers we've met, paying fairly for quality and building relationships that last for harvests.</p>
+        </div>
+        <div class="step reveal" style="--i:1">
+          <h3>Roasted</h3>
+          <p class="muted">Small batches roasted to bring out each origin's notes, whether that's chocolate, citrus or brown sugar.</p>
+        </div>
+        <div class="step reveal" style="--i:2">
+          <h3>Served</h3>
+          <p class="muted">Brewed by trained baristas, finished with latte art, and handed over at exactly the right temperature.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="section">
     <div class="container">
-      <h1 style="text-align:center;margin-bottom:24px">Why Choose Brew Haven?</h1>
-
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="feature-emoji">☕</div>
-          <h3>Specialty Coffee Blends</h3>
-          <p>Handpicked single-origin beans roasted with precision. Baristas calibrate grind size & extraction daily for peak flavor.</p>
+      <div class="cta-band reveal reveal-zoom">
+        <div>
+          <h2>Taste the difference.</h2>
+          <p>Start with a flat white. It's the drink our baristas are proudest of.</p>
         </div>
-
-        <div class="card">
-          <div class="feature-emoji">🧁</div>
-          <h3>Fresh Local Pastries</h3>
-          <p>Partner bakeries deliver fresh pastries every morning. Seasonal items highlight local fruits and Filipino flavors.</p>
-        </div>
-
-        <div class="card">
-          <div class="feature-emoji">📶</div>
-          <h3>Cozy Ambience & Free Wi-Fi</h3>
-          <p>Choose between quiet corners for focus or comfy couches for catch-ups. Enjoy curated playlists & plenty of charging spots.</p>
-        </div>
-
-        <div class="card">
-          <div class="feature-emoji">🌍</div>
-          <h3>Eco-Friendly Commitment</h3>
-          <p>We use compostable cups, paper straws, and partner with local recycling initiatives to reduce waste.</p>
-        </div>
-
-        <div class="card">
-          <div class="feature-emoji">🎁</div>
-          <h3>Rewards & Loyalty</h3>
-          <p>Earn points with every purchase and redeem them for free drinks, pastries, and exclusive offers.</p>
-        </div>
-
-        <div class="card">
-          <div class="feature-emoji">🤝</div>
-          <h3>Fast, Friendly Service</h3>
-          <p>Our baristas serve with a smile—expect quick orders during busy hours without losing quality.</p>
+        <div class="actions">
+          <a class="btn btn-light" href="products.html?cat=Coffee">Browse coffee <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Process Section -->
-  <section class="section" style="background:#f9f7f5">
-    <div class="container">
-      <h2 style="text-align:center;margin-bottom:18px">From Farm to Cup</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h4>🌱 Sourced</h4>
-          <p>Direct trade beans from ethical farmers worldwide, ensuring quality and fairness.</p>
-        </div>
-        <div class="card">
-          <h4>🔥 Roasted</h4>
-          <p>Each batch roasted in small quantities to highlight the unique notes of every bean.</p>
-        </div>
-        <div class="card">
-          <h4>☕ Served</h4>
-          <p>Expertly brewed by trained baristas, topped with latte art & served at perfect temperature.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cart Drawer -->
-  <div class="cart-drawer">
-    <div class="cart-header">
-      <strong>Your Cart</strong>
-      <button class="secondary" onclick="closeCart()">Close</button>
-    </div>
-    <div class="cart-items"></div>
-    <div class="cart-footer">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-        <span>Total</span><strong class="cart-total">₱0.00</strong>
-      </div>
-      <button>Checkout</button>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Brew Haven Coffee Shop · Sustainably brewed · Community powered</p>
-    </div>
-  </footer>
+</main>
 </body>
 </html>

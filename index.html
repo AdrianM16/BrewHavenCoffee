@@ -2,215 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brew Haven Coffee Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brew Haven Coffee | Manila neighborhood café</title>
+  <meta name="description" content="Brew Haven is a cozy Manila coffee shop serving ethically sourced coffee, fresh pastries and a quiet place to work or catch up.">
+  <meta name="theme-color" content="#23150f">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="data/seed.js"></script>
+  <script defer src="store.js"></script>
+  <script defer src="auth.js"></script>
   <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
-        Brew Haven
-      </a>
-      <button class="menu-toggle">Menu ☰</button>
-      <nav>
-        <ul>
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-             <li><a href="customers.html">Customers</a></li>
-             <li><a href="messages.html">Messages</a></li>
-          <li>
-            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
-              Cart <span class="cart-count">0</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
+<body data-page="home">
+<main id="main">
 
   <!-- HERO -->
-  <section class="hero" style="background:url('images/hero-bg.jpg') center/cover no-repeat; position:relative; color:#fff; text-align:center; padding:120px 20px;">
-    <div style="position:relative; z-index:1;">
-      <h1>Brewed with Passion, Served with Love.</h1>
-      <p>Your cozy spot for coffee and conversations.</p>
-      <div style="display:flex;gap:12px;justify-content:center;margin-top:16px">
-        <a class="btn" href="products.html">View Our Menu</a>
-        <a class="btn outline" href="features.html">See Our Features</a>
-      </div>
-    </div>
-    <!-- Overlay effect -->
-    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(62,39,35,0.6);"></div>
-  </section>
-
-
-  <!-- ABOUT US -->
-  <section class="section about">
-    <div class="container grid grid-2">
+  <section class="hero">
+    <div class="container hero-grid">
       <div>
-        <h2>About Brew Haven</h2>
-        <p>
-          Brew Haven Coffee Shop was founded with one simple goal: to bring people together over the perfect cup of coffee. 
-          From ethically sourced beans to freshly baked pastries, we pride ourselves on creating a warm and welcoming space 
-          for students, professionals, and coffee lovers alike.
-        </p>
-        <p>
-          Whether you need a quiet place to study, a cozy nook to catch up with friends, or just a quick caffeine boost, 
-          Brew Haven has something special for you.
-        </p>
-        <a class="btn" href="features.html">Learn More</a>
+        <p class="eyebrow">Neighborhood café · Manila</p>
+        <h1>
+          <span class="line"><span>Brewed with</span></span>
+          <span class="line"><span><em class="accent">passion,</em> served</span></span>
+          <span class="line"><span>with <span class="squiggle">love.<svg viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C 20 2, 35 12, 50 6 S 80 2, 98 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></span></span>
+        </h1>
+        <p class="lead">Small-batch coffee, pastries baked every morning, and a quiet corner saved for you. Come for the latte, stay for the conversation.</p>
+        <div class="hero-actions">
+          <a class="btn" href="products.html">Order from the menu <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="contact.html">Find the café</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>25+</strong>drinks &amp; bakes</div>
+          <div><strong>4.9★</strong>from regulars</div>
+          <div><span class="open-badge" data-open-status>Open now</span><br><span style="display:inline-block;margin-top:6px">Mon–Sat · 8AM–8PM</span></div>
+        </div>
       </div>
-      <div>
-        <img src="images/about-brew.jpg" alt="About Brew Haven" style="border-radius:12px;">
+
+      <div class="hero-art">
+        <svg class="steam" viewBox="0 0 90 60" aria-hidden="true"><path d="M20 58c-8-10 8-16 0-28s6-18 0-28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M45 58c-8-10 8-16 0-28s6-18 0-28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M70 58c-8-10 8-16 0-28s6-18 0-28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        <div class="arch"><img src="images/cappuccino.jpg" alt="A cappuccino with latte art, served at Brew Haven" fetchpriority="high"></div>
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><defs><path id="circ" d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/></defs><text font-size="9.5" font-weight="600" fill="#fffcf7"><textPath href="#circ" textLength="236" lengthAdjust="spacing">FRESHLY ROASTED · BREWED DAILY · </textPath></text></svg>
+          <span class="bean">☕</span>
+        </div>
+        <div class="chip"><img src="images/latte.jpg" alt=""><span><strong>Caffè Latte</strong>today's favorite</span></div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section class="section">
-    <div class="container grid grid-3">
-      <div class="card feature">
-        <div class="icon">🌱</div>
-        <div><h3>Ethically Sourced</h3><p>Beans from sustainable farms brewed fresh daily.</p></div>
-      </div>
-      <div class="card feature">
-        <div class="icon">📶</div>
-        <div><h3>Work-Friendly</h3><p>Power outlets, quiet nooks, and reliable Wi-Fi.</p></div>
-      </div>
-      <div class="card feature">
-        <div class="icon">🎁</div>
-        <div><h3>Rewards</h3><p>Collect beans and redeem free drinks via our loyalty program.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED PRODUCTS -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Customer Favorites</h2>
-      <div class="grid grid-3">
-        
-        <!-- Caramel Macchiato -->
-        <div class="card product">
-          <img src="images/caramel.jpg" alt="Caramel Macchiato">
-          <h3>Caramel Macchiato</h3>
-          <p>Espresso, milk, vanilla, and caramel drizzle.</p>
-          <strong>₱170</strong>
-          <button onclick="addToCart('Caramel Macchiato',170,'images/caramel-macchiato.jpg')">Add to Cart</button>
-        </div>
-        
-        <!-- Caffè Latte -->
-        <div class="card product">
-          <img src="images/latte.jpg" alt="Caffè Latte">
-          <h3>Caffè Latte</h3>
-          <p>Rich espresso with steamed milk.</p>
-          <strong>₱150</strong>
-          <button onclick="addToCart('Caffè Latte',150,'images/latte.jpg')">Add to Cart</button>
-        </div>
-        
-        <!-- New York Cheesecake -->
-        <div class="card product">
-          <img src="images/cheesecake.jpg" alt="New York Cheesecake">
-          <h3>New York Cheesecake</h3>
-          <p>Creamy slice topped with strawberry sauce.</p>
-          <strong>₱150</strong>
-          <button onclick="addToCart('New York Cheesecake',150,'images/cheesecake.jpg')">Add to Cart</button>
-        </div>
-
-      </div>
-      <div class="see-more">
-        <a class="btn outline" href="products.html">See Full Menu</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials">
-    <div class="container">
-      <h2 class="section-title">What Our Customers Say</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <p>"Best coffee in town! The latte is smooth and the staff are super friendly."</p>
-          <strong>- Sarah, Student</strong>
-        </div>
-        <div class="card">
-          <p>"Perfect spot to work. Wi-Fi is fast and the atmosphere is peaceful."</p>
-          <strong>- Mark, Freelancer</strong>
-        </div>
-        <div class="card">
-          <p>"Their croissants are to die for. I always grab one with my cappuccino."</p>
-          <strong>- Jen, Regular Customer</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION -->
-  <section class="section cta">
-    <div class="container" style="text-align:center">
-      <h2>Ready to Visit Us?</h2>
-      <p>Drop by our café or order online to enjoy your Brew Haven favorites.</p>
-      <a class="btn" href="contact.html">Contact Us</a>
-    </div>
-  </section>
-
-  <!-- CART DRAWER -->
-  <div class="cart-drawer">
-    <div class="cart-header">
-      <strong>Your Cart</strong>
-      <button class="secondary" onclick="closeCart()">Close</button>
-    </div>
-    <div class="cart-items"></div>
-    <div class="cart-footer">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-        <span>Total</span><strong class="cart-total">₱0.00</strong>
-      </div>
-      <button>Checkout</button>
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Single-origin espresso</span><span>Butter croissants at 8AM</span><span>Fast Wi-Fi &amp; plugs</span><span>Oat milk, no extra charge</span><span>Cold brew steeped 18 hours</span>
+      <span>Single-origin espresso</span><span>Butter croissants at 8AM</span><span>Fast Wi-Fi &amp; plugs</span><span>Oat milk, no extra charge</span><span>Cold brew steeped 18 hours</span>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h4>Brew Haven Coffee Shop</h4>
-        <p>4952 Brew Street, Manila, Philippines</p>
-        <p>Email: hello@brewhaven.ph</p>
-        <p>Phone: +63 912 345 6789</p>
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container split">
+      <div class="photo-stack reveal reveal-left">
+        <img src="images/about-brew.jpg" alt="A barista pouring latte art at Brew Haven" loading="lazy">
+        <p class="note">"We started with one espresso machine and a lot of stubbornness."</p>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-             <li><a href="customers.html">Customers</a></li>
-             <li><a href="messages.html">Messages</a></li>
+      <div class="reveal reveal-right">
+        <p class="eyebrow">About Brew Haven</p>
+        <h2>A third place between home and everywhere else.</h2>
+        <p class="lead">Brew Haven started with one goal: bring people together over a really good cup of coffee. We buy beans from farms we know by name and bake in small batches every morning.</p>
+        <ul class="check-list">
+          <li>Ethically sourced beans, roasted for flavor not for shelf life</li>
+          <li>Quiet nooks for studying, big tables for barkada catch-ups</li>
+          <li>Loyalty beans on every order, redeemable for free drinks</li>
         </ul>
-      </div>
-      <div>
-        <h4>Follow Us</h4>
-        <p>
-          <a href="https://facebook.com" target="_blank">📘 Facebook</a> | 
-          <a href="https://instagram.com" target="_blank">📸 Instagram</a> | 
-          <a href="https://twitter.com" target="_blank">🐦 Twitter</a>
-        </p>
+        <a class="link-arrow" href="features.html">Read our story <span aria-hidden="true">→</span></a>
       </div>
     </div>
-    <div class="container" style="text-align:center;margin-top:16px;">
-      © 2025 Brew Haven Coffee Shop. All rights reserved.
+  </section>
+
+  <!-- FAVORITES -->
+  <section class="section bg-oat">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Customer favorites</p>
+          <h2>What the regulars order.</h2>
+        </div>
+        <a class="btn btn-ghost" href="products.html">See the full menu <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="product-grid" id="favorites" aria-live="polite">
+        <p class="muted">Loading favorites…</p>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- WHY -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Why people stay</p>
+          <h2>Made for long mornings.</h2>
+        </div>
+        <p>Whether you need a quick caffeine fix or four hours of focus, the café is set up for it.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card reveal" style="--i:0">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-3 7-7 7-12a7 7 0 0 0-14 0c0 5 3 9 7 12z"/><path d="M12 22V10"/><path d="M12 14l3-3"/></svg></div>
+          <h3>Ethically sourced</h3>
+          <p class="muted">Direct-trade beans from farms in Benguet, Sagada and beyond, brewed fresh every day.</p>
+        </article>
+        <article class="card reveal" style="--i:1">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0"/><path d="M5.5 12.5a10 10 0 0 1 13 0"/><path d="M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg></div>
+          <h3>Work-friendly</h3>
+          <p class="muted">Fast fiber Wi-Fi, outlets at every table, and a no-music quiet room upstairs.</p>
+        </article>
+        <article class="card reveal" style="--i:2">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18"/><path d="M12 8c-2-4-6-4-6-1.5S9 8 12 8zM12 8c2-4 6-4 6-1.5S15 8 12 8z"/></svg></div>
+          <h3>Rewards that add up</h3>
+          <p class="muted">Collect a bean with every order. Ten beans gets you any drink on us.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="section bg-dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Brew Haven in numbers</p>
+          <h2>Small café, big heart.</h2>
+        </div>
+        <p class="lead" style="margin:0">Every cup is pulled by a barista who knows the regulars by name and their orders by heart.</p>
+      </div>
+      <div class="stats">
+        <div class="stat reveal" style="--i:0"><strong data-count="48000" data-suffix="+">0</strong><span>cups poured since opening</span></div>
+        <div class="stat reveal" style="--i:1"><strong data-count="6">0</strong><span>partner farms we buy from</span></div>
+        <div class="stat reveal" style="--i:2"><strong data-count="18" data-suffix="h">0</strong><span>cold brew steep time</span></div>
+        <div class="stat reveal" style="--i:3"><strong data-count="1200" data-suffix="+">0</strong><span>loyalty members</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Kind words</p>
+          <h2>From the people at table four.</h2>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        <figure class="quote-card reveal" style="--i:0;margin:0">
+          <blockquote>The latte is smooth and the staff remember my name. Best coffee near campus, no contest.</blockquote>
+          <figcaption class="who"><span class="avatar" aria-hidden="true">S</span><span><strong>Sarah</strong><br><span class="muted">Student</span></span></figcaption>
+        </figure>
+        <figure class="quote-card reveal" style="--i:1;margin:0">
+          <blockquote>My actual office. Wi-Fi never drops, the cold brew is strong, and nobody rushes you out.</blockquote>
+          <figcaption class="who"><span class="avatar" aria-hidden="true">M</span><span><strong>Mark</strong><br><span class="muted">Freelance designer</span></span></figcaption>
+        </figure>
+        <figure class="quote-card reveal" style="--i:2;margin:0">
+          <blockquote>Their croissants sell out by ten for a reason. Grab one with a cappuccino and thank me later.</blockquote>
+          <figcaption class="who"><span class="avatar" aria-hidden="true">J</span><span><strong>Jen</strong><br><span class="muted">Regular since day one</span></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-tight" style="padding-bottom:clamp(64px,10vw,120px)">
+    <div class="container">
+      <div class="cta-band reveal reveal-zoom">
+        <div>
+          <h2>Your table is waiting.</h2>
+          <p>Drop by the café, or order ahead and skip the line.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-light" href="products.html">Order ahead <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" style="--fg:#fff;--bd:#fff" href="contact.html">Get directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
 </body>
 </html>
-

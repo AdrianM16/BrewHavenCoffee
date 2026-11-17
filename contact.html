@@ -2,375 +2,249 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Brew Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visit &amp; Contact | Brew Haven Coffee</title>
+  <meta name="description" content="Find Brew Haven in Manila, check our opening hours, or send us a message.">
+  <meta name="theme-color" content="#23150f">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="data/seed.js"></script>
+  <script defer src="store.js"></script>
+  <script defer src="auth.js"></script>
   <script defer src="script.js"></script>
 </head>
-<body>
-  
-  <!-- HEADER -->
-  <header>
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
-        Brew Haven
-      </a>
-      <button class="menu-toggle">Menu ☰</button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a class="active" href="contact.html">Contact</a></li>
-          <li><a href="customers.html">Customers</a></li>
-          <li><a href="messages.html">Messages</a></li>
-          <li>
-            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
-              Cart <span class="cart-count">0</span>
-            </a>
-          </li>
+<body data-page="contact">
+<main id="main">
+
+  <section class="page-hero">
+    <div class="ring" aria-hidden="true"></div>
+    <div class="container">
+      <p class="eyebrow">Visit us</p>
+      <h1>Come say hi, <em class="accent">or just write.</em></h1>
+      <p class="lead">Questions, group bookings, feedback, or a song request for the café playlist. We reply within a day.</p>
+    </div>
+  </section>
+
+  <!-- INFO + MAP -->
+  <section class="section-tight" style="padding-top:0">
+    <div class="container split" style="align-items:stretch">
+      <div class="card bg-dark reveal reveal-left" style="border-color:var(--espresso)">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px">
+          <h2 style="color:var(--foam);margin:0;font-size:1.8rem">Opening hours</h2>
+          <span class="open-badge" data-open-status>Open now</span>
+        </div>
+        <ul class="hours">
+          <li data-day="1"><span>Monday</span><span>8:00 AM – 8:00 PM</span></li>
+          <li data-day="2"><span>Tuesday</span><span>8:00 AM – 8:00 PM</span></li>
+          <li data-day="3"><span>Wednesday</span><span>8:00 AM – 8:00 PM</span></li>
+          <li data-day="4"><span>Thursday</span><span>8:00 AM – 8:00 PM</span></li>
+          <li data-day="5"><span>Friday</span><span>8:00 AM – 8:00 PM</span></li>
+          <li data-day="6"><span>Saturday</span><span>8:00 AM – 8:00 PM</span></li>
+          <li data-day="0"><span>Sunday</span><span>9:00 AM – 6:00 PM</span></li>
         </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Get in Touch with Brew Haven</h1>
-      <p>Have a question or suggestion? We'd love to hear from you!</p>
+        <ul class="info-list" style="margin-top:28px">
+          <li><span class="card-icon" aria-hidden="true">📍</span><span><strong>4952 Brew Street</strong>Manila, Philippines</span></li>
+          <li><span class="card-icon" aria-hidden="true">📞</span><span><strong>Call us</strong><a href="tel:+639123456789">+63 912 345 6789</a></span></li>
+          <li><span class="card-icon" aria-hidden="true">✉️</span><span><strong>Email</strong><a href="mailto:hello@brewhaven.ph">hello@brewhaven.ph</a></span></li>
+        </ul>
+      </div>
+      <div class="reveal reveal-right" style="min-height:360px">
+        <iframe class="map-frame" title="Map showing Brew Haven in Manila" loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=120.9772%2C14.5945%2C120.9912%2C14.6045&amp;layer=mapnik&amp;marker=14.5995%2C120.9842"></iframe>
+        <p style="margin:10px 0 0;font-size:.9rem"><a href="https://www.openstreetmap.org/?mlat=14.5995&amp;mlon=120.9842#map=17/14.5995/120.9842" target="_blank" rel="noopener">Open larger map ↗</a></p>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTIONS -->
+  <!-- FORMS -->
   <section class="section">
     <div class="container">
-      
-      <!-- REGULAR INQUIRIES SECTION -->
-      <div class="contact-section">
-        <h2>Send Us a Message</h2>
-        <p>Use this form for general inquiries, feedback, or questions about our services.</p>
-        
-        <form data-contact-inquiry>
-          <div class="form-group">
-            <label for="inquiry_name">Your Name *</label>
-            <input id="inquiry_name" name="name" type="text" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <label for="inquiry_phone">Contact Number *</label>
-            <input id="inquiry_phone" name="phone" type="text" placeholder="09xx xxx xxxx" required>
-          </div>
-          <div class="form-group">
-            <label for="inquiry_email">Email Address *</label>
-            <input id="inquiry_email" name="email" type="email" placeholder="you@example.com" required>
-          </div>
-          <div class="form-group">
-            <label for="inquiry_message">Your Message *</label>
-            <textarea id="inquiry_message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send Inquiry</button>
-          <div id="inquiryResponse" class="form-response"></div>
-        </form>
+      <div class="tabs" role="tablist" aria-label="Contact options">
+        <button class="tab" role="tab" id="tab-inquiry" aria-controls="panel-inquiry" aria-selected="true">✉️ Send a message</button>
+        <button class="tab" role="tab" id="tab-marketing" aria-controls="panel-marketing" aria-selected="false" tabindex="-1">📣 Marketing preview</button>
       </div>
 
-      <!-- MARKETING PREVIEW SECTION -->
-      <div class="contact-section">
-        <h2>Marketing Preview</h2>
-        <p>Want to see how your message would look as a marketing campaign? Use this form to preview email and social media content.</p>
-        
-        <form data-contact-marketing>
-          <div class="form-group">
-            <label for="marketing_name">Your Name *</label>
-            <input id="marketing_name" name="name" type="text" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <label for="marketing_email">Email Address *</label>
-            <input id="marketing_email" name="email" type="email" placeholder="you@example.com" required>
-          </div>
-          <div class="form-group">
-            <label for="marketing_message">Marketing Message *</label>
-            <textarea id="marketing_message" name="message" rows="4" placeholder="Your marketing message here..." required></textarea>
-          </div>
-          
-          <div class="form-group">
-            <label>Marketing Platform *</label>
-            <div class="radio-group">
-              <label><input type="radio" name="platform" value="email" checked> Email Marketing</label>
-              <label><input type="radio" name="platform" value="social"> Social Media Marketing</label>
-            </div>
-          </div>
-
-          <div id="socialOptions" style="display:none">
-            <div class="form-group">
-              <label>Social Media Platforms (Select at least 3)</label>
-              <div class="checkbox-group">
-                <label><input type="checkbox" name="socialPlatforms" value="facebook" checked> Facebook</label>
-                <label><input type="checkbox" name="socialPlatforms" value="instagram"> Instagram</label>
-                <label><input type="checkbox" name="socialPlatforms" value="x" checked> X (Twitter)</label>
-                <label><input type="checkbox" name="socialPlatforms" value="tiktok" checked> TikTok</label>
+      <div class="split" style="align-items:start">
+        <div>
+          <!-- Inquiry -->
+          <div role="tabpanel" id="panel-inquiry" aria-labelledby="tab-inquiry">
+            <h2>Send us a message</h2>
+            <p class="muted">General questions, feedback or reservations for groups of 6+.</p>
+            <div class="alert" id="inquiryAlert" role="alert"></div>
+            <form id="inquiryForm" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="inq_name">Your name <span class="req" aria-hidden="true">*</span></label>
+                  <input id="inq_name" name="name" type="text" autocomplete="name" required aria-describedby="inq_name_err">
+                  <span class="field-error" id="inq_name_err"></span>
+                </div>
+                <div class="field">
+                  <label for="inq_phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+                  <input id="inq_phone" name="phone" type="tel" autocomplete="tel" placeholder="0917 123 4567" required aria-describedby="inq_phone_err">
+                  <span class="field-error" id="inq_phone_err"></span>
+                </div>
               </div>
-            </div>
+              <div class="field">
+                <label for="inq_email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="inq_email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="inq_email_err">
+                <span class="field-error" id="inq_email_err"></span>
+              </div>
+              <div class="field">
+                <label for="inq_message">Message <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="inq_message" name="message" required aria-describedby="inq_message_err" placeholder="How can we help?"></textarea>
+                <span class="field-error" id="inq_message_err"></span>
+              </div>
+              <button class="btn" type="submit">Send message <span class="arrow" aria-hidden="true">→</span></button>
+            </form>
           </div>
-          
-          <button type="submit" class="btn outline">Preview Marketing Content</button>
-          <div id="marketingResponse" class="form-response"></div>
-        </form>
-      </div>
 
+          <!-- Marketing -->
+          <div role="tabpanel" id="panel-marketing" aria-labelledby="tab-marketing" hidden>
+            <h2>Marketing preview</h2>
+            <p class="muted">Write a promo message and see how it would look as an email campaign or a social media post.</p>
+            <div class="alert" id="marketingAlert" role="alert"></div>
+            <form id="marketingForm" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="mk_name">Your name <span class="req" aria-hidden="true">*</span></label>
+                  <input id="mk_name" name="name" type="text" autocomplete="name" required aria-describedby="mk_name_err">
+                  <span class="field-error" id="mk_name_err"></span>
+                </div>
+                <div class="field">
+                  <label for="mk_email">Email <span class="req" aria-hidden="true">*</span></label>
+                  <input id="mk_email" name="email" type="email" autocomplete="email" required aria-describedby="mk_email_err">
+                  <span class="field-error" id="mk_email_err"></span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="mk_message">Marketing message <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="mk_message" name="message" required aria-describedby="mk_message_err" placeholder="Rainy day special: two cinnamon rolls and a pot of coffee…"></textarea>
+                <span class="field-error" id="mk_message_err"></span>
+              </div>
+              <fieldset class="choice-group">
+                <legend>Channel</legend>
+                <label class="choice"><input type="radio" name="platform" value="email" checked> Email</label>
+                <label class="choice"><input type="radio" name="platform" value="social"> Social media</label>
+              </fieldset>
+              <fieldset class="choice-group" id="socialOptions" hidden>
+                <legend>Platforms</legend>
+                <label class="choice"><input type="checkbox" name="socialPlatforms" value="facebook" checked> Facebook</label>
+                <label class="choice"><input type="checkbox" name="socialPlatforms" value="instagram" checked> Instagram</label>
+                <label class="choice"><input type="checkbox" name="socialPlatforms" value="x"> X</label>
+                <label class="choice"><input type="checkbox" name="socialPlatforms" value="tiktok" checked> TikTok</label>
+              </fieldset>
+              <button class="btn btn-dark" type="submit">Preview campaign <span class="arrow" aria-hidden="true">→</span></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="photo-stack reveal" style="padding-left:0">
+          <img src="images/croissant.jpg" alt="Butter croissants fresh out of the oven" loading="lazy">
+          <p class="note">Group of 6 or more? Message us a day ahead and we'll save the big table.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT INFO & MAP -->
-  <section class="section">
-    <div class="container grid grid-3">
-      <div class="card">
-        <h3>Our Location</h3>
-        <p><strong>Address:</strong> 4952 Coffee Street, Manila, PH</p>
-        <p><strong>Phone:</strong> 0912-345-6789</p>
-        <p><strong>Email:</strong> hello@brewhaven.ph</p>
-        <p><strong>Hours:</strong> Mon–Sat 8:00–20:00</p>
-      </div>
-      <div class="card">
-        <h3>Find Us on Map</h3>
-        <div id="map" style="width:100%;height:300px;border-radius:8px;"></div>
-      </div>
-    </div>
-  </section>
+</main>
 
-  <!-- CART DRAWER -->
-  <div class="cart-drawer">
-    <div class="cart-header">
-      <strong>Your Cart</strong>
-      <button class="secondary" onclick="closeCart()">Close</button>
-    </div>
-    <div class="cart-items"></div>
-    <div class="cart-footer">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-        <span>Total</span><strong class="cart-total">₱0.00</strong>
-      </div>
-      <button>Checkout</button>
-    </div>
-  </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const { toast } = window.BH;
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Brew Haven Coffee Shop</p>
-    </div>
-  </footer>
-
-  <style>
-    .contact-section {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .contact-section h2 {
-      color: #3e2723;
-      margin-bottom: 15px;
-    }
-    .contact-section p {
-      color: #666;
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #333;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .radio-group,
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .radio-group label,
-    .checkbox-group label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
-    .radio-group input[type="radio"],
-    .checkbox-group input[type="checkbox"] {
-      width: auto;
-      margin: 0;
-    }
-    .form-response {
-      margin-top: 15px;
-      padding: 15px;
-      border-radius: 6px;
-      display: none;
-    }
-    .form-response.success {
-      background: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-    .form-response.error {
-      background: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-    }
-    .btn {
-      background: #3e2723;
-      color: white;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #5d4037;
-    }
-    .btn.outline {
-      background: transparent;
-      color: #3e2723;
-      border: 2px solid #3e2723;
-    }
-    .btn.outline:hover {
-      background: #3e2723;
-      color: white;
-    }
-  </style>
-
-  <script>
-    // Handle regular inquiry form
-    document.addEventListener('DOMContentLoaded', function() {
-      const inquiryForm = document.querySelector('[data-contact-inquiry]');
-      const marketingForm = document.querySelector('[data-contact-marketing]');
-      const socialOptions = document.getElementById('socialOptions');
-      const marketingResponse = document.getElementById('marketingResponse');
-      const inquiryResponse = document.getElementById('inquiryResponse');
-
-      // Handle marketing platform selection
-      const marketingRadios = document.querySelectorAll('input[name="platform"]');
-      marketingRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-          const selected = document.querySelector('input[name="platform"]:checked').value;
-          socialOptions.style.display = (selected === 'social') ? 'block' : 'none';
-        });
-      });
-
-      // Handle regular inquiry form
-      inquiryForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-        
-        try {
-          const res = await fetch('/api/messages', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ...data,
-              platform: 'inquiry',
-              platformsSelected: []
-            })
-          });
-          const result = await res.json();
-          
-          inquiryResponse.textContent = 'Thank you! Your inquiry has been sent successfully.';
-          inquiryResponse.className = 'form-response success';
-          inquiryResponse.style.display = 'block';
-          this.reset();
-          
-        } catch (err) {
-          inquiryResponse.textContent = 'Sorry, there was an error sending your inquiry. Please try again.';
-          inquiryResponse.className = 'form-response error';
-          inquiryResponse.style.display = 'block';
-        }
-      });
-
-      // Handle marketing preview form
-      marketingForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-        const platform = data.platform;
-        const platformsSelected = Array.from(formData.getAll('socialPlatforms'));
-        
-        try {
-          const res = await fetch('/api/messages', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ...data,
-              platform: platform,
-              platformsSelected: platformsSelected
-            })
-          });
-          const result = await res.json();
-          
-          // Redirect to appropriate mockup page
-          if (platform === 'social' && platformsSelected.length > 0) {
-            const firstPlatform = platformsSelected[0];
-            window.location.href = `mock_social.html?platform=${encodeURIComponent(firstPlatform)}`;
-          } else {
-            window.location.href = 'mock_email.html';
-          }
-          
-        } catch (err) {
-          marketingResponse.textContent = 'Sorry, there was an error. Please try again.';
-          marketingResponse.className = 'form-response error';
-          marketingResponse.style.display = 'block';
-        }
-      });
+  // tabs
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  function select(tab) {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
     });
-  </script>
+    tab.focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') select(tabs[(i + 1) % tabs.length]);
+      if (e.key === 'ArrowLeft') select(tabs[(i - 1 + tabs.length) % tabs.length]);
+    });
+  });
+  if (location.hash === '#marketing') select(tabs[1]);
 
-  <!-- Google Maps API Integration -->
-  <script>
-    function initMap(){
-      const brewHavenLocation = { lat: 14.5995, lng: 120.9842 };
-      const map = new google.maps.Map(document.getElementById('map'), { 
-        center: brewHavenLocation, 
-        zoom: 16,
-        mapTypeControl: true,
-        streetViewControl: true,
-        fullscreenControl: true
-      });
-      
-      const marker = new google.maps.Marker({ 
-        position: brewHavenLocation, 
-        map: map, 
-        title: 'Brew Haven Coffee Shop',
-        animation: google.maps.Animation.DROP
-      });
-      
-      const infoWindow = new google.maps.InfoWindow({
-        content: '<div style="padding:10px;"><h3 style="margin:0 0 5px 0;">☕ Brew Haven Coffee Shop</h3><p style="margin:5px 0;">4952 Brew Street, Manila, Philippines</p><p style="margin:5px 0;">Phone: +63 912 345 6789</p></div>'
-      });
-      
-      marker.addListener('click', function() {
-        infoWindow.open(map, marker);
-      });
+  // validation helpers
+  const rules = {
+    name: v => v.trim().length >= 2 || 'Please enter your name.',
+    phone: v => /^\+?\d[\d\s-]{6,}$/.test(v.trim()) || 'Enter a valid phone number, e.g. 0917 123 4567.',
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Enter a valid email address.',
+    message: v => v.trim().length >= 10 || 'Your message should be at least 10 characters.'
+  };
+  function validate(form) {
+    let firstBad = null;
+    form.querySelectorAll('input[required], textarea[required]').forEach(input => {
+      const rule = rules[input.name];
+      const res = rule ? rule(input.value) : true;
+      const err = document.getElementById(input.getAttribute('aria-describedby'));
+      const bad = res !== true;
+      input.setAttribute('aria-invalid', bad);
+      if (err) err.textContent = bad ? res : '';
+      if (bad && !firstBad) firstBad = input;
+    });
+    if (firstBad) firstBad.focus();
+    return !firstBad;
+  }
+  function showAlert(el, msg, type) {
+    el.textContent = msg;
+    el.className = 'alert show ' + type;
+  }
+
+  // inquiry
+  const inquiryForm = document.getElementById('inquiryForm');
+  inquiryForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!validate(inquiryForm)) return;
+    const btn = inquiryForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    try {
+      const d = Object.fromEntries(new FormData(inquiryForm));
+      await Store.create('messages', { name: d.name.trim(), phone: d.phone.trim(), email: d.email.trim(), message: d.message.trim(), platform: 'inquiry', platformsSelected: [] });
+      showAlert(document.getElementById('inquiryAlert'), 'Thank you! Your message was sent. We usually reply within a day.', 'success');
+      toast('Message sent');
+      inquiryForm.reset();
+    } catch (err) {
+      console.error(err);
+      showAlert(document.getElementById('inquiryAlert'), 'Sorry, we could not send that. Please try again or email hello@brewhaven.ph.', 'error');
+    } finally { btn.disabled = false; }
+  });
+
+  // marketing
+  const marketingForm = document.getElementById('marketingForm');
+  const socialOptions = document.getElementById('socialOptions');
+  marketingForm.querySelectorAll('input[name="platform"]').forEach(r => r.addEventListener('change', () => {
+    socialOptions.hidden = marketingForm.platform.value !== 'social';
+  }));
+  marketingForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!validate(marketingForm)) return;
+    const fd = new FormData(marketingForm);
+    const platform = fd.get('platform');
+    const platformsSelected = fd.getAll('socialPlatforms');
+    if (platform === 'social' && !platformsSelected.length) {
+      showAlert(document.getElementById('marketingAlert'), 'Pick at least one social platform.', 'error');
+      return;
     }
-  </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&callback=initMap"></script>
-
+    const data = { name: fd.get('name').trim(), email: fd.get('email').trim(), phone: '', message: fd.get('message').trim(), platform, platformsSelected };
+    try { await Store.create('messages', data); } catch (err) { console.warn(err); }
+    try { sessionStorage.setItem('lastContactMessage', JSON.stringify(data)); } catch (err) {}
+    location.href = platform === 'social'
+      ? 'mock_social.html?platform=' + encodeURIComponent(platformsSelected[0])
+      : 'mock_email.html';
+  });
+});
+</script>
 </body>
 </html>

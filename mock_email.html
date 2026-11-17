@@ -2,287 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Marketing Preview - Brew Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email preview | Brew Haven Coffee</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#23150f">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="data/seed.js"></script>
+  <script defer src="store.js"></script>
+  <script defer src="auth.js"></script>
   <script defer src="script.js"></script>
-  <style>
-    .email-preview {
-      max-width: 600px;
-      margin: 40px auto;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .email-header {
-      background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
-      color: white;
-      padding: 30px;
-      text-align: center;
-    }
-    .email-header h1 {
-      margin: 0 0 10px 0;
-      font-size: 28px;
-    }
-    .email-body {
-      padding: 30px;
-      line-height: 1.6;
-    }
-    .email-banner {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .promo-box {
-      background: #fff3e0;
-      border: 2px dashed #ff6f00;
-      padding: 20px;
-      margin: 20px 0;
-      text-align: center;
-      border-radius: 8px;
-    }
-    .promo-code {
-      font-size: 32px;
-      font-weight: bold;
-      color: #ff6f00;
-      letter-spacing: 2px;
-      margin: 10px 0;
-    }
-    .cta-button {
-      display: inline-block;
-      background: #3e2723;
-      color: white;
-      padding: 15px 40px;
-      text-decoration: none;
-      border-radius: 25px;
-      margin: 20px 0;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .cta-button:hover {
-      background: #5d4037;
-    }
-    .email-footer {
-      background: #f5f5f5;
-      padding: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #666;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin: 20px 0;
-    }
-    .product-item {
-      text-align: center;
-      padding: 15px;
-      background: #fafafa;
-      border-radius: 8px;
-    }
-    .product-item img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-    .social-links {
-      margin: 15px 0;
-    }
-    .social-links a {
-      display: inline-block;
-      margin: 0 10px;
-      color: #3e2723;
-      text-decoration: none;
-      font-size: 24px;
-    }
-  </style>
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <span class="logo-icon">☕</span>
-        Brew Haven
-      </a>
-      <button class="menu-toggle">Menu ☰</button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="customers.html">Customers</a></li>
-          <li><a href="messages.html">Messages</a></li>
-          <li>
-            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
-              Cart <span class="cart-count">0</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
+<body data-page="mock">
+<main id="main">
+  <section class="page-hero no-print">
+    <div class="ring" aria-hidden="true"></div>
     <div class="container">
-      <h1>Email Marketing Preview</h1>
-      <p>This is how your email campaign would look to customers</p>
+      <p class="eyebrow">Marketing preview · Email</p>
+      <h1>Here's your campaign.</h1>
+      <p class="lead">This is roughly how your message would land in a customer's inbox.</p>
     </div>
   </section>
 
-  <!-- EMAIL PREVIEW -->
-  <section class="section">
+  <section class="section-tight" style="padding-top:0">
     <div class="container">
-      <div class="email-preview">
-        <!-- Email Header -->
-        <div class="email-header">
-          <h1>☕ Brew Haven</h1>
-          <p>Your Cozy Coffee Destination</p>
+      <article class="preview-shell reveal reveal-zoom" aria-label="Email preview">
+        <div class="email-top">
+          <h2>Brew Haven</h2>
+          <p>Your cozy coffee corner</p>
         </div>
-
-        <!-- Email Banner -->
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=200&fit=crop" alt="Coffee Banner" class="email-banner">
-
-        <!-- Email Body -->
-        <div class="email-body" id="emailContent">
-          <h2 style="color: #3e2723; margin-top: 0;">Hello, Coffee Lover! ☕</h2>
-          
-          <p>Thank you for reaching out to Brew Haven! We're excited to connect with you.</p>
-          
-          <div id="customerMessage" style="background: #f9f7f5; padding: 15px; border-left: 4px solid #3e2723; margin: 20px 0;">
-            <!-- Customer message will be inserted here -->
+        <img class="email-banner" src="images/about-brew.jpg" alt="">
+        <div class="email-body">
+          <h3 style="font-size:1.6rem">Hello, coffee lover ☕</h3>
+          <p>Thanks for being part of the Brew Haven family. Here's something from us:</p>
+          <div class="quote-box" id="customerMessage"></div>
+          <div class="promo">
+            <strong>A little thank-you</strong>
+            <p style="margin:6px 0 0">Use this code at the counter</p>
+            <code>BREW20</code>
+            <p style="margin:0"><strong>20% off</strong> your next order</p>
           </div>
-
-          <p>As a token of our appreciation, we'd like to offer you an exclusive discount on your next visit!</p>
-
-          <!-- Promo Box -->
-          <div class="promo-box">
-            <h3 style="margin: 0 0 10px 0; color: #ff6f00;">🎉 Special Offer Just For You!</h3>
-            <p style="margin: 5px 0;">Use this promo code for</p>
-            <div class="promo-code">BREW20</div>
-            <p style="margin: 5px 0;"><strong>20% OFF</strong> your next purchase</p>
-            <p style="font-size: 12px; color: #666;">Valid until December 31, 2025</p>
+          <h3>Customer favorites</h3>
+          <div class="mini-products">
+            <div><img src="images/cappuccino.jpg" alt=""><strong>Cappuccino</strong><br>₱120</div>
+            <div><img src="images/caramel.jpg" alt=""><strong>Caramel Macchiato</strong><br>₱140</div>
+            <div><img src="images/croissant.jpg" alt=""><strong>Butter Croissant</strong><br>₱75</div>
+            <div><img src="images/cheesecake.jpg" alt=""><strong>NY Cheesecake</strong><br>₱120</div>
           </div>
-
-          <!-- Featured Products -->
-          <h3 style="color: #3e2723;">Our Customer Favorites</h3>
-          <div class="product-grid">
-            <div class="product-item">
-              <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=200&h=120&fit=crop" alt="Cappuccino">
-              <strong>Cappuccino</strong>
-              <p style="margin: 5px 0; color: #666;">₱120</p>
-            </div>
-            <div class="product-item">
-              <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=200&h=120&fit=crop" alt="Caramel Macchiato">
-              <strong>Caramel Macchiato</strong>
-              <p style="margin: 5px 0; color: #666;">₱140</p>
-            </div>
-            <div class="product-item">
-              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&h=120&fit=crop" alt="Croissant">
-              <strong>Butter Croissant</strong>
-              <p style="margin: 5px 0; color: #666;">₱75</p>
-            </div>
-            <div class="product-item">
-              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=120&fit=crop" alt="Cheesecake">
-              <strong>Cheesecake</strong>
-              <p style="margin: 5px 0; color: #666;">₱120</p>
-            </div>
-          </div>
-
-          <!-- CTA Button -->
-          <div style="text-align: center;">
-            <a href="products.html" class="cta-button">View Full Menu</a>
-          </div>
-
-          <!-- Visit Us -->
-          <div style="margin-top: 30px; padding: 20px; background: #f9f7f5; border-radius: 8px;">
-            <h3 style="margin: 0 0 10px 0; color: #3e2723;">📍 Visit Us</h3>
-            <p style="margin: 5px 0;"><strong>Address:</strong> 4952 Brew Street, Manila, Philippines</p>
-            <p style="margin: 5px 0;"><strong>Hours:</strong> Mon-Sat, 8:00 AM - 8:00 PM</p>
-            <p style="margin: 5px 0;"><strong>Phone:</strong> +63 912 345 6789</p>
-            <p style="margin: 5px 0;"><strong>Email:</strong> hello@brewhaven.ph</p>
-          </div>
-
-          <!-- Social Links -->
-          <div style="text-align: center; margin-top: 20px;">
-            <p style="margin-bottom: 10px;"><strong>Follow Us</strong></p>
-            <div class="social-links">
-              <a href="#" title="Facebook">📘</a>
-              <a href="#" title="Instagram">📸</a>
-              <a href="#" title="Twitter">🐦</a>
-            </div>
-          </div>
+          <p class="center"><a class="btn" href="products.html">View the full menu</a></p>
+          <p class="muted" style="font-size:.9rem;margin-top:24px">📍 4952 Brew Street, Manila · Mon–Sat 8AM–8PM · +63 912 345 6789</p>
         </div>
+        <div class="email-foot">You're receiving this because you contacted Brew Haven. Unsubscribe · Privacy</div>
+      </article>
 
-        <!-- Email Footer -->
-        <div class="email-footer">
-          <p style="margin: 5px 0;">© 2025 Brew Haven Coffee Shop. All rights reserved.</p>
-          <p style="margin: 5px 0;">You're receiving this email because you contacted us through our website.</p>
-          <p style="margin: 5px 0;">
-            <a href="#" style="color: #666;">Unsubscribe</a> | 
-            <a href="#" style="color: #666;">Privacy Policy</a>
-          </p>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div style="text-align: center; margin: 30px 0;">
-        <button onclick="window.print()" class="btn">Print / Save as PDF</button>
-        <a href="contact.html" class="btn outline" style="margin-left: 10px;">Back to Contact</a>
+      <div class="center no-print" style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="btn" type="button" onclick="window.print()">Print or save as PDF</button>
+        <a class="btn btn-ghost" href="contact.html#marketing">Write another</a>
       </div>
     </div>
   </section>
-
-  <!-- CART DRAWER -->
-  <div class="cart-drawer">
-    <div class="cart-header">
-      <strong>Your Cart</strong>
-      <button class="secondary" onclick="closeCart()">Close</button>
-    </div>
-    <div class="cart-items"></div>
-    <div class="cart-footer">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-        <span>Total</span><strong class="cart-total">₱0.00</strong>
-      </div>
-      <button>Checkout</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Brew Haven Coffee Shop</p>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const data = JSON.parse(sessionStorage.getItem('lastContactMessage') || 'null');
-      const messageDiv = document.getElementById('customerMessage');
-      
-      if (data && data.message) {
-        messageDiv.innerHTML = `
-          <p style="margin: 0 0 10px 0;"><strong>Your Message:</strong></p>
-          <p style="margin: 0; font-style: italic;">"${data.message}"</p>
-          <p style="margin: 10px 0 0 0; font-size: 12px; color: #666;">
-            - ${data.name} (${data.email})
-          </p>
-        `;
-      } else {
-        messageDiv.innerHTML = `
-          <p style="margin: 0;"><strong>Sample Message:</strong></p>
-          <p style="margin: 10px 0 0 0; font-style: italic;">"I love your coffee! Can't wait to visit again."</p>
-        `;
-      }
-    });
-  </script>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  let data = null;
+  try { data = JSON.parse(sessionStorage.getItem('lastContactMessage') || 'null'); } catch (e) {}
+  const box = document.getElementById('customerMessage');
+  const msg = document.createElement('p');
+  msg.style.cssText = 'margin:0;font-style:italic;white-space:pre-wrap';
+  msg.textContent = data && data.message ? '"' + data.message + '"' : '"Rainy day special: two cinnamon rolls and a pot of brewed coffee. Come cozy up with us this week!"';
+  const by = document.createElement('p');
+  by.className = 'muted';
+  by.style.cssText = 'margin:8px 0 0;font-size:.85rem';
+  by.textContent = data && data.name ? '- ' + data.name : '- The Brew Haven team (sample message)';
+  box.append(msg, by);
+});
+</script>
 </body>
 </html>

@@ -2,323 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile - Brew Haven Coffee Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My profile | Brew Haven Coffee</title>
+  <meta name="theme-color" content="#23150f">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .profile-container {
-      min-height: 70vh;
-      padding: 60px 20px;
-      background: #faf7f2;
-    }
-
-    .profile-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .profile-header {
-      background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
-      color: #fff;
-      padding: 40px;
-      border-radius: 15px 15px 0 0;
-      text-align: center;
-    }
-
-    .profile-avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: #ffcc80;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      margin: 0 auto 20px;
-      border: 5px solid #fff;
-    }
-
-    .profile-header h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .profile-header p {
-      opacity: 0.9;
-      font-size: 1.1rem;
-    }
-
-    .profile-body {
-      background: #fff;
-      padding: 40px;
-      border-radius: 0 0 15px 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
-
-    .profile-section {
-      margin-bottom: 40px;
-    }
-
-    .profile-section h2 {
-      color: #3e2723;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #ffcc80;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .info-item {
-      padding: 15px;
-      background: #faf7f2;
-      border-radius: 8px;
-      border-left: 4px solid #ffcc80;
-    }
-
-    .info-label {
-      font-weight: 600;
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 5px;
-    }
-
-    .info-value {
-      color: #3e2723;
-      font-size: 1.1rem;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .btn-edit {
-      padding: 12px 30px;
-      background: #5d4037;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-edit:hover {
-      background: #3e2723;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      padding: 12px 30px;
-      background: #fff;
-      color: #5d4037;
-      border: 2px solid #5d4037;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-secondary:hover {
-      background: #5d4037;
-      color: #fff;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .stat-card {
-      background: linear-gradient(135deg, #ffcc80 0%, #ffb74d 100%);
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-      color: #3e2723;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .stat-label {
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 768px) {
-      .profile-header {
-        padding: 30px 20px;
-      }
-
-      .profile-body {
-        padding: 30px 20px;
-      }
-
-      .btn-group {
-        flex-direction: column;
-      }
-
-      .btn-edit, .btn-secondary {
-        width: 100%;
-      }
-    }
-  </style>
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="data/seed.js"></script>
+  <script defer src="store.js"></script>
+  <script defer src="auth.js"></script>
+  <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
-        Brew Haven
-      </a>
-      <button class="menu-toggle">Menu ☰</button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body data-page="profile" data-guard="user">
+<main id="main">
 
-  <!-- PROFILE CONTAINER -->
-  <div class="profile-container">
-    <div class="profile-content">
-      <div class="profile-header">
-        <div class="profile-avatar" id="profileAvatar">👤</div>
-        <h1 id="profileName">Loading...</h1>
-        <p id="profileEmail">Loading...</p>
-      </div>
-
-      <div class="profile-body">
-        <!-- Personal Information -->
-        <div class="profile-section">
-          <h2>Personal Information</h2>
-          <div class="info-grid">
-            <div class="info-item">
-              <div class="info-label">Username</div>
-              <div class="info-value" id="infoUsername">-</div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Email</div>
-              <div class="info-value" id="infoEmail">-</div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">First Name</div>
-              <div class="info-value" id="infoFirstName">-</div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Last Name</div>
-              <div class="info-value" id="infoLastName">-</div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Account Type</div>
-              <div class="info-value" id="infoRole">-</div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Member Since</div>
-              <div class="info-value" id="infoCreatedAt">-</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Account Statistics -->
-        <div class="profile-section">
-          <h2>Account Statistics</h2>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-number">0</div>
-              <div class="stat-label">Orders Placed</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">0</div>
-              <div class="stat-label">Loyalty Points</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">0</div>
-              <div class="stat-label">Favorite Items</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="btn-group">
-          <button class="btn-edit" onclick="editProfile()">Edit Profile</button>
-          <button class="btn-secondary" onclick="changePassword()">Change Password</button>
-          <button class="btn-secondary" onclick="logout()">Logout</button>
-        </div>
+  <section class="page-hero page-hero-dark">
+    <div class="ring" aria-hidden="true"></div>
+    <div class="container profile-hero">
+      <div class="profile-avatar" id="pAvatar" aria-hidden="true">?</div>
+      <div>
+        <p class="eyebrow" id="pRole">Member</p>
+        <h1 id="pName" style="margin-bottom:.2em">Your profile</h1>
+        <p class="lead" id="pEmail" style="margin:0"></p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- FOOTER -->
-  <footer>
+  <section class="section">
     <div class="container">
-      <p>&copy; 2025 Brew Haven Coffee Shop. All rights reserved.</p>
+      <div class="kpis">
+        <div class="kpi reveal" style="--i:0"><div class="label">Orders placed</div><div class="value" id="kOrders">0</div></div>
+        <div class="kpi reveal" style="--i:1"><div class="label">Loyalty beans</div><div class="value" id="kBeans">0</div></div>
+        <div class="kpi reveal" style="--i:2"><div class="label">Items rated</div><div class="value" id="kRated">0</div></div>
+        <div class="kpi reveal" style="--i:3"><div class="label">Total spent</div><div class="value" id="kSpent">₱0</div></div>
+      </div>
+
+      <div class="grid grid-2" style="align-items:start">
+        <section class="panel reveal" aria-labelledby="detailsTitle">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap">
+            <h2 id="detailsTitle" style="font-size:1.6rem;margin:0">Account details</h2>
+            <button class="btn btn-sm btn-ghost" type="button" id="editBtn">Edit details</button>
+          </div>
+          <dl class="dl-grid" id="details"></dl>
+        </section>
+
+        <section class="panel reveal" style="--i:1" aria-labelledby="ordersTitle">
+          <h2 id="ordersTitle" style="font-size:1.6rem">Recent orders</h2>
+          <div id="orders"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+            <button class="btn btn-sm btn-ghost" type="button" id="pwBtn">Change password</button>
+            <button class="btn btn-sm btn-ghost" type="button" data-logout>Sign out</button>
+          </div>
+        </section>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
-  <script src="auth.js"></script>
-  <script>
-    // Load user profile
-    document.addEventListener('DOMContentLoaded', function() {
-      const user = getCurrentUser();
-      
-      if (!user) {
-        window.location.href = 'login.html';
-        return;
-      }
+  <dialog class="modal" id="editDialog" aria-labelledby="editTitle">
+    <form method="dialog" id="editForm">
+      <div class="modal-head"><h2 id="editTitle">Edit details</h2><button class="close-x" value="cancel" formnovalidate aria-label="Close">×</button></div>
+      <div class="modal-body">
+        <div class="alert" id="editAlert" role="alert"></div>
+        <div class="form-row">
+          <div class="field"><label for="eFirst">First name</label><input id="eFirst" type="text" required autocomplete="given-name"></div>
+          <div class="field"><label for="eLast">Last name</label><input id="eLast" type="text" required autocomplete="family-name"></div>
+        </div>
+        <div class="field"><label for="eEmail">Email</label><input id="eEmail" type="email" required autocomplete="email"></div>
+      </div>
+      <div class="modal-foot"><button class="btn btn-ghost" value="cancel" formnovalidate>Cancel</button><button class="btn" value="save">Save changes</button></div>
+    </form>
+  </dialog>
 
-      // Update profile header
-      document.getElementById('profileName').textContent = `${user.firstName} ${user.lastName}`;
-      document.getElementById('profileEmail').textContent = user.email;
-      document.getElementById('profileAvatar').textContent = user.firstName.charAt(0).toUpperCase();
+  <dialog class="modal" id="pwDialog" aria-labelledby="pwTitle">
+    <form method="dialog" id="pwForm">
+      <div class="modal-head"><h2 id="pwTitle">Change password</h2><button class="close-x" value="cancel" formnovalidate aria-label="Close">×</button></div>
+      <div class="modal-body">
+        <div class="alert" id="pwAlert" role="alert"></div>
+        <div class="field"><label for="pwCurrent">Current password</label><input id="pwCurrent" type="password" required autocomplete="current-password"></div>
+        <div class="field"><label for="pwNew">New password</label><input id="pwNew" type="password" required minlength="6" autocomplete="new-password"></div>
+        <div class="field"><label for="pwConfirm">Confirm new password</label><input id="pwConfirm" type="password" required autocomplete="new-password"></div>
+      </div>
+      <div class="modal-foot"><button class="btn btn-ghost" value="cancel" formnovalidate>Cancel</button><button class="btn" value="save">Update password</button></div>
+    </form>
+  </dialog>
+</main>
 
-      // Update personal information
-      document.getElementById('infoUsername').textContent = user.username;
-      document.getElementById('infoEmail').textContent = user.email;
-      document.getElementById('infoFirstName').textContent = user.firstName;
-      document.getElementById('infoLastName').textContent = user.lastName;
-      document.getElementById('infoRole').textContent = user.role.charAt(0).toUpperCase() + user.role.slice(1);
-      
-      const createdDate = new Date(user.createdAt);
-      document.getElementById('infoCreatedAt').textContent = createdDate.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-    });
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const { esc, peso, toast, lsGet } = window.BH;
+  const user = Auth.getCurrentUser();
+  if (!user) return;
 
-    function editProfile() {
-      alert('Edit profile feature coming soon!');
+  function render() {
+    const u = Auth.getCurrentUser();
+    document.getElementById('pAvatar').textContent = (u.firstName || u.username).charAt(0).toUpperCase();
+    document.getElementById('pName').textContent = `${u.firstName} ${u.lastName}`;
+    document.getElementById('pEmail').textContent = u.email;
+    document.getElementById('pRole').textContent = u.role === 'admin' ? 'Staff · Admin' : 'Brew Haven member';
+    const since = new Date(u.createdAt).toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('details').innerHTML = [
+      ['Username', u.username], ['Email', u.email], ['First name', u.firstName], ['Last name', u.lastName],
+      ['Account type', u.role === 'admin' ? 'Admin' : 'Customer'], ['Member since', since]
+    ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
+  }
+  render();
+
+  const orders = lsGet('bh_orders', []).filter(o => o.user === user.username).reverse();
+  const ratings = lsGet('bh_ratings_v1', {});
+  document.getElementById('kOrders').textContent = orders.length;
+  document.getElementById('kBeans').textContent = orders.reduce((s, o) => s + o.items.reduce((a, i) => a + i.qty, 0), 0);
+  document.getElementById('kRated').textContent = Object.values(ratings).filter(Boolean).length;
+  document.getElementById('kSpent').textContent = peso(orders.reduce((s, o) => s + o.total, 0));
+  document.getElementById('orders').innerHTML = orders.length
+    ? `<ul class="hours" style="color:var(--ink)">${orders.slice(0, 6).map(o => `<li><span><strong>${esc(o.id)}</strong><br><small class="muted">${new Date(o.date).toLocaleDateString('en-PH')} · ${o.items.map(i => esc(i.qty + '× ' + i.name)).join(', ')}</small></span><span>${peso(o.total)}</span></li>`).join('')}</ul>`
+    : `<p class="muted">No orders yet. <a href="products.html">Browse the menu</a> and place your first one.</p>`;
+
+  // edit details
+  const editDialog = document.getElementById('editDialog');
+  document.getElementById('editBtn').addEventListener('click', () => {
+    const u = Auth.getCurrentUser();
+    eFirst.value = u.firstName; eLast.value = u.lastName; eEmail.value = u.email;
+    document.getElementById('editAlert').className = 'alert';
+    editDialog.showModal();
+  });
+  document.getElementById('editForm').addEventListener('submit', e => {
+    if (e.submitter && e.submitter.value === 'cancel') return;
+    e.preventDefault();
+    const a = document.getElementById('editAlert');
+    if (!eFirst.value.trim() || !eLast.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(eEmail.value.trim())) {
+      a.textContent = 'Please fill in your name and a valid email.'; a.className = 'alert show error'; return;
     }
+    const res = Auth.updateProfile({ firstName: eFirst.value.trim(), lastName: eLast.value.trim(), email: eEmail.value.trim() });
+    if (res.error) { a.textContent = res.error; a.className = 'alert show error'; return; }
+    editDialog.close(); render(); toast('Profile updated');
+  });
 
-    function changePassword() {
-      const newPassword = prompt('Enter new password:');
-      if (newPassword && newPassword.length >= 6) {
-        alert('Password changed successfully!');
-      } else if (newPassword) {
-        alert('Password must be at least 6 characters long.');
-      }
-    }
-  </script>
+  // change password
+  const pwDialog = document.getElementById('pwDialog');
+  document.getElementById('pwBtn').addEventListener('click', () => { document.getElementById('pwForm').reset(); document.getElementById('pwAlert').className = 'alert'; pwDialog.showModal(); });
+  document.getElementById('pwForm').addEventListener('submit', e => {
+    if (e.submitter && e.submitter.value === 'cancel') return;
+    e.preventDefault();
+    const a = document.getElementById('pwAlert');
+    if (pwNew.value !== pwConfirm.value) { a.textContent = 'The new passwords do not match.'; a.className = 'alert show error'; return; }
+    const res = Auth.changePassword(pwCurrent.value, pwNew.value);
+    if (res.error) { a.textContent = res.error; a.className = 'alert show error'; return; }
+    pwDialog.close(); toast('Password updated');
+  });
+});
+</script>
 </body>
 </html>

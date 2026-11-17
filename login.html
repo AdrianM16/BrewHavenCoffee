@@ -2,326 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Brew Haven Coffee Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in | Brew Haven Coffee</title>
+  <meta name="description" content="Sign in to your Brew Haven account.">
+  <meta name="theme-color" content="#23150f">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .login-container {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
-    }
-
-    .login-box {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      padding: 50px 40px;
-      max-width: 450px;
-      width: 100%;
-      animation: slideIn 0.5s ease;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .login-logo {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .login-logo img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 15px;
-    }
-
-    .login-logo h2 {
-      color: #3e2723;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .login-logo p {
-      color: #666;
-      font-size: 0.95rem;
-    }
-
-    .form-group {
-      margin-bottom: 25px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      color: #3e2723;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 14px 16px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background: #fafafa;
-    }
-
-    .form-group input:focus {
-      outline: none;
-      border-color: #ffcc80;
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(255, 204, 128, 0.1);
-    }
-
-    .form-options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-      font-size: 0.9rem;
-    }
-
-    .remember-me {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #666;
-    }
-
-    .remember-me input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-
-    .forgot-password {
-      color: #5d4037;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .forgot-password:hover {
-      color: #ffcc80;
-    }
-
-    .login-btn {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(135deg, #5d4037 0%, #3e2723 100%);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-bottom: 20px;
-    }
-
-    .login-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(62, 39, 35, 0.4);
-    }
-
-    .login-btn:active {
-      transform: translateY(0);
-    }
-
-    .divider {
-      text-align: center;
-      margin: 25px 0;
-      position: relative;
-      color: #999;
-      font-size: 0.9rem;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      width: 40%;
-      height: 1px;
-      background: #e0e0e0;
-    }
-
-    .divider::before {
-      left: 0;
-    }
-
-    .divider::after {
-      right: 0;
-    }
-
-    .signup-link {
-      text-align: center;
-      color: #666;
-      font-size: 0.95rem;
-    }
-
-    .signup-link a {
-      color: #5d4037;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    .signup-link a:hover {
-      color: #ffcc80;
-    }
-
-    .alert {
-      padding: 12px 16px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-size: 0.9rem;
-      display: none;
-    }
-
-    .alert.success {
-      background: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-
-    .alert.error {
-      background: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-    }
-
-    .social-login {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .social-btn {
-      flex: 1;
-      padding: 12px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      background: #fff;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .social-btn:hover {
-      border-color: #ffcc80;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .login-box {
-        padding: 40px 30px;
-      }
-
-      .login-logo h2 {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="data/seed.js"></script>
+  <script defer src="store.js"></script>
+  <script defer src="auth.js"></script>
+  <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
-        Brew Haven
-      </a>
-      <button class="menu-toggle">Menu ☰</button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="active" href="login.html">Login</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body data-page="login">
+<main id="main" class="auth-wrap">
+  <div class="auth-panel">
+    <div class="auth-box">
+      <p class="eyebrow">Welcome back</p>
+      <h1>Sign in</h1>
+      <p class="sub">Track your orders and loyalty beans, or open the staff dashboard.</p>
 
-  <!-- LOGIN CONTAINER -->
-  <div class="login-container">
-    <div class="login-box">
-      <div class="login-logo">
-        <img src="logo.svg" alt="Brew Haven Logo">
-        <h2>Welcome Back!</h2>
-        <p>Login to access your account</p>
-      </div>
+      <div class="alert" id="alertBox" role="alert"></div>
 
-      <div id="alertBox" class="alert"></div>
-
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="username">Username or Email</label>
-          <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="username">Username or email</label>
+          <input type="text" id="username" name="username" autocomplete="username" required>
         </div>
-
-        <div class="form-group">
+        <div class="field">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          <div class="pw-wrap">
+            <input type="password" id="password" name="password" autocomplete="current-password" required>
+            <button type="button" class="pw-toggle" data-pw="password" aria-pressed="false">Show</button>
+          </div>
         </div>
-
-        <div class="form-options">
-          <label class="remember-me">
-            <input type="checkbox" id="rememberMe">
-            <span>Remember me</span>
-          </label>
-          <a href="#" class="forgot-password" onclick="showForgotPassword(); return false;">Forgot Password?</a>
+        <div class="split-line">
+          <label class="checkbox-line"><input type="checkbox" id="rememberMe"> Keep me signed in</label>
+          <a href="#" id="forgotLink">Forgot password?</a>
         </div>
-
-        <button type="submit" class="login-btn">Login</button>
+        <button type="submit" class="btn btn-block">Sign in <span class="arrow" aria-hidden="true">→</span></button>
       </form>
 
-      <div class="divider">OR</div>
+      <p class="auth-foot">New here? <a href="register.html">Create an account</a></p>
 
-      <div class="social-login">
-        <button class="social-btn" onclick="socialLogin('google')">
-          <span>🔍</span> Google
-        </button>
-        <button class="social-btn" onclick="socialLogin('facebook')">
-          <span>📘</span> Facebook
-        </button>
-      </div>
-
-      <div class="signup-link">
-        Don't have an account? <a href="register.html">Sign up here</a>
-      </div>
+      <section class="demo-box" aria-labelledby="demoTitle">
+        <h2 id="demoTitle">Demo accounts</h2>
+        <div class="row">
+          <span><strong>Admin</strong><br><code>admin</code> / <code>admin123</code></span>
+          <button class="btn btn-sm btn-dark" type="button" data-demo="admin|admin123">Use admin</button>
+        </div>
+        <div class="row">
+          <span><strong>Customer</strong><br><code>customer</code> / <code>customer123</code></span>
+          <button class="btn btn-sm btn-ghost" type="button" data-demo="customer|customer123">Use customer</button>
+        </div>
+      </section>
     </div>
   </div>
+  <div class="auth-art">
+    <img src="images/americano.jpg" alt="">
+    <blockquote>"Life happens, coffee helps."<cite>Brew Haven house motto</cite></blockquote>
+  </div>
+</main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Brew Haven Coffee Shop. All rights reserved.</p>
-    </div>
-  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('loginForm');
+  const alertBox = document.getElementById('alertBox');
+  const next = new URLSearchParams(location.search).get('next');
+  const show = (msg, type) => { alertBox.textContent = msg; alertBox.className = 'alert show ' + type; };
 
-  <script src="script.js"></script>
-  <script src="auth.js"></script>
+  if (next) show('Please sign in to continue.', 'info');
+
+  document.querySelectorAll('.pw-toggle').forEach(b => b.addEventListener('click', () => {
+    const input = document.getElementById(b.dataset.pw);
+    const showing = input.type === 'text';
+    input.type = showing ? 'password' : 'text';
+    b.textContent = showing ? 'Show' : 'Hide';
+    b.setAttribute('aria-pressed', String(!showing));
+  }));
+
+  document.querySelectorAll('[data-demo]').forEach(b => b.addEventListener('click', () => {
+    const [u, p] = b.dataset.demo.split('|');
+    form.username.value = u;
+    form.password.value = p;
+    form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit', { cancelable: true }));
+  }));
+
+  document.getElementById('forgotLink').addEventListener('click', e => {
+    e.preventDefault();
+    show('Password resets are handled at the counter for now. Ask any barista and they will sort you out.', 'info');
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.username.value.trim() || !form.password.value) { show('Enter your username and password.', 'error'); return; }
+    const user = Auth.login(form.username.value, form.password.value);
+    if (!user) { show('That username and password do not match. Try again.', 'error'); form.password.select(); return; }
+    show('Welcome back, ' + user.firstName + '! Taking you in…', 'success');
+    const safeNext = next && /^[\w-]+\.html$/.test(next) ? next : null;
+    setTimeout(() => { location.href = safeNext || (user.role === 'admin' ? 'admin.html' : 'index.html'); }, 700);
+  });
+});
+</script>
 </body>
 </html>

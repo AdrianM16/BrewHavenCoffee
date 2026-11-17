@@ -2,166 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Messages - Brew Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Messages | Brew Haven Coffee</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#23150f">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="data/seed.js"></script>
+  <script defer src="store.js"></script>
+  <script defer src="auth.js"></script>
   <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="logo.svg" alt="Brew Haven Logo" class="logo-image">
-        Brew Haven
-      </a>
-      <button class="menu-toggle">Menu ☰</button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-          <li><a href="customers.html">Customers</a></li>
-          <li><a class="active" href="messages.html">Messages</a></li>
-          <li>
-            <a class="cart-link" href="javascript:void(0)" onclick="openCart()">
-              Cart <span class="cart-count">0</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
+<body data-page="messages" data-guard="admin">
+<main id="main">
+  <section class="page-hero">
+    <div class="ring" aria-hidden="true"></div>
     <div class="container">
-      <h1>Customer Messages</h1>
-      <p>View and search through customer inquiries and feedback</p>
+      <p class="eyebrow">Staff · Inbox</p>
+      <h1>What people are saying.</h1>
+      <p class="lead">Inquiries from the contact form and campaign drafts from the marketing preview.</p>
     </div>
   </section>
 
-  <!-- MESSAGES SECTION -->
-  <section class="section">
-    <div class="container">
-      <div class="search-row">
-        <input type="text" id="msgSearch" placeholder="Search messages by name, email, or content...">
+  <section class="section-tight" style="padding-top:0;padding-bottom:clamp(64px,10vw,120px)">
+    <div class="container-narrow">
+      <div class="panel-tools">
+        <label class="search-field" style="max-width:420px"><span class="sr-only">Search messages</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="msgSearch" placeholder="Search name, email or text…"></label>
+        <div class="chips" role="group" aria-label="Filter by type">
+          <button class="chip-btn" type="button" data-type="all" aria-pressed="true">All</button>
+          <button class="chip-btn" type="button" data-type="inquiry" aria-pressed="false">Inquiries</button>
+          <button class="chip-btn" type="button" data-type="email" aria-pressed="false">Email</button>
+          <button class="chip-btn" type="button" data-type="social" aria-pressed="false">Social</button>
+        </div>
       </div>
-      
-      <div id="msgContainer">
-        <!-- Messages will be loaded here dynamically -->
-      </div>
-      
-      <div id="noResults" style="display:none; text-align:center; padding:40px;">
-        <p>No messages found matching your search.</p>
-      </div>
+      <p class="result-count" id="msgCount" aria-live="polite" style="margin-top:8px"></p>
+      <div id="msgContainer" style="display:grid;gap:16px"></div>
     </div>
   </section>
+</main>
 
-  <!-- CART DRAWER -->
-  <div class="cart-drawer">
-    <div class="cart-header">
-      <strong>Your Cart</strong>
-      <button class="secondary" onclick="closeCart()">Close</button>
-    </div>
-    <div class="cart-items"></div>
-    <div class="cart-footer">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-        <span>Total</span><strong class="cart-total">₱0.00</strong>
-      </div>
-      <button>Checkout</button>
-    </div>
-  </div>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  if (!Auth.isAdmin()) return;
+  const { esc, observeReveals, toast } = window.BH;
+  const box = document.getElementById('msgContainer');
+  const search = document.getElementById('msgSearch');
+  const chips = Array.from(document.querySelectorAll('[data-type]'));
+  let type = 'all';
+  let all = await Store.list('messages');
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h4>Brew Haven Coffee Shop</h4>
-        <p>4952 Brew Street, Manila, Philippines</p>
-        <p>Email: hello@brewhaven.ph</p>
-        <p>Phone: +63 912 345 6789</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-          <li><a href="customers.html">Customers</a></li>
-          <li><a href="messages.html">Messages</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Follow Us</h4>
-        <p>
-          <a href="https://facebook.com" target="_blank">📘 Facebook</a> | 
-          <a href="https://instagram.com" target="_blank">📸 Instagram</a> | 
-          <a href="https://twitter.com" target="_blank">🐦 Twitter</a>
-        </p>
-      </div>
-    </div>
-    <div class="container" style="text-align:center;margin-top:16px;">
-      © 2025 Brew Haven Coffee Shop. All rights reserved.
-    </div>
-  </footer>
-
-  <script>
-    async function loadMessages(q = '') {
-      try {
-        const url = '/api/messages' + (q ? '?q=' + encodeURIComponent(q) : '');
-        const res = await fetch(url);
-        const arr = await res.json();
-        
-        const container = document.getElementById('msgContainer');
-        const noResults = document.getElementById('noResults');
-        
-        container.innerHTML = '';
-        
-        if (arr.length === 0) {
-          noResults.style.display = 'block';
-          return;
-        }
-        
-        noResults.style.display = 'none';
-        
-        arr.forEach(m => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.style.marginBottom = '16px';
-          
-          const platformBadge = m.platform === 'email' 
-            ? '<span style="background:#4CAF50;color:white;padding:4px 8px;border-radius:4px;font-size:12px;">📧 Email</span>'
-            : '<span style="background:#2196F3;color:white;padding:4px 8px;border-radius:4px;font-size:12px;">📱 Social Media</span>';
-          
-          card.innerHTML = `
-            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
-              <h3 style="margin:0;">${m.name}</h3>
-              ${platformBadge}
-            </div>
-            <p class="small" style="margin:4px 0;"><strong>Email:</strong> ${m.email}</p>
-            <p class="small" style="margin:4px 0;"><strong>Phone:</strong> ${m.phone || 'N/A'}</p>
-            <p class="small" style="margin:4px 0;"><strong>Date:</strong> ${new Date(m.date_sent).toLocaleString()}</p>
-            ${m.platformsSelected && m.platformsSelected.length > 0 ? 
-              `<p class="small" style="margin:4px 0;"><strong>Platforms:</strong> ${m.platformsSelected.join(', ')}</p>` : ''}
-            <hr style="margin:12px 0;">
-            <p style="margin:8px 0;"><strong>Message:</strong></p>
-            <p style="margin:8px 0;background:#f5f5f5;padding:12px;border-radius:4px;">${m.message}</p>
-          `;
-          container.appendChild(card);
-        });
-      } catch (err) {
-        console.error('Failed to load messages:', err);
-        document.getElementById('msgContainer').innerHTML = '<p style="text-align:center;color:red;">Failed to load messages. Please make sure the server is running.</p>';
-      }
-    }
-    
-    document.getElementById('msgSearch').addEventListener('input', e => loadMessages(e.target.value));
-    document.addEventListener('DOMContentLoaded', () => loadMessages());
-  </script>
+  function render() {
+    const q = search.value.toLowerCase().trim();
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.type === type)));
+    const rows = all.filter(m => (type === 'all' || m.platform === type) && (!q || [m.name, m.email, m.phone, m.message].join(' ').toLowerCase().includes(q)));
+    document.getElementById('msgCount').textContent = `${rows.length} message${rows.length === 1 ? '' : 's'}`;
+    box.innerHTML = rows.length ? rows.map((m, i) => `
+      <article class="card msg-card reveal" style="--i:${i % 3}">
+        <header style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+          <div style="display:flex;gap:12px;align-items:center"><span class="avatar" aria-hidden="true">${esc((m.name || '?').charAt(0))}</span>
+            <div><h2 style="font-size:1.15rem;margin:0">${esc(m.name)}</h2>
+            <span class="muted" style="font-size:.88rem">${new Date(m.date_sent).toLocaleString('en-PH', { dateStyle: 'medium', timeStyle: 'short' })}</span></div></div>
+          <span class="badge ${esc(m.platform)}">${esc(m.platform)}</span>
+        </header>
+        <div class="msg-meta">
+          ${m.email ? `<a href="mailto:${esc(m.email)}">${esc(m.email)}</a>` : ''}
+          ${m.phone ? `<span>${esc(m.phone)}</span>` : ''}
+          ${m.platformsSelected && m.platformsSelected.length ? `<span>Platforms: ${m.platformsSelected.map(esc).join(', ')}</span>` : ''}
+        </div>
+        <p class="msg-text">${esc(m.message)}</p>
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          ${m.email ? `<a class="btn btn-sm btn-ghost" href="mailto:${esc(m.email)}?subject=${encodeURIComponent('Re: your message to Brew Haven')}">Reply</a>` : ''}
+          <button class="btn btn-sm btn-danger" type="button" data-del="${esc(m.id)}">Delete</button>
+        </div>
+      </article>`).join('') : `<div class="empty-state"><div class="big" aria-hidden="true">📭</div><p>No messages here.</p></div>`;
+    observeReveals(box);
+  }
+  search.addEventListener('input', render);
+  chips.forEach(c => c.addEventListener('click', () => { type = c.dataset.type; render(); }));
+  box.addEventListener('click', async e => {
+    const b = e.target.closest('[data-del]');
+    if (!b || !confirm('Delete this message?')) return;
+    await Store.remove('messages', b.dataset.del);
+    all = await Store.list('messages');
+    render(); toast('Message deleted');
+  });
+  render();
+});
+</script>
 </body>
 </html>
